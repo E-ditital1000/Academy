@@ -44,6 +44,7 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_cleanup',
+    
 ]
 
 # Thired party apps
@@ -121,11 +122,11 @@ ASGI_APPLICATION = "SMS.asgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
-        'PORT': env('DB_PORT'),
+        'NAME': ('railway'),
+        'USER': ('postgres'),
+        'PASSWORD':('NuYS32cqC2k8oJ4MeFTq'),
+        'HOST': ('containers-us-west-125.railway.app'),
+        'PORT': ('6791'),
     }
 }
 
@@ -184,8 +185,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com' # Here i'm using gmail as the email host, but you can change it
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = env('USER_EMAIL')
-EMAIL_HOST_PASSWORD = env('USER_PASSWORD')
+EMAIL_HOST_USER = ('techelvis7@gmail.com')
+EMAIL_HOST_PASSWORD = ('Sorccelvistech@123')
 
 # crispy config
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -205,5 +206,5 @@ REST_FRAMEWORK = {
 }
 
 # Strip payment config
-STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
-STRIPE_PUBLISHABLE_KEY = env('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = ('')
+STRIPE_PUBLISHABLE_KEY = ('')
