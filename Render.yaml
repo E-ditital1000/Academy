@@ -1,2 +1,20 @@
-static_dirs:
-  - path: static
+databases:
+  - name: SMS
+    databaseName: railway
+    user: postgres
+
+services:
+  - type: web
+    name: SMS
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn mysite.wsgi:application"
+    envVars:
+      - key: NuYS32cqC2k8oJ4MeFTq
+        fromDatabase:
+          name: SMS
+          property: connectionString
+      - key: 'o!ld8nrt4vc*h1zoey*wj48x*q0#ss12h=+zh)kk^6b3aygg=!'
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
