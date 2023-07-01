@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "DJANGO-LMS/wsgi.py",
+      "src": "SMS/wsgi.py",
       "use": "@vercel/python",
       "config": {
         "maxLambdaSize": "15mb",
@@ -17,7 +17,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "DJANGO-LMS/wsgi.py"
+      "dest": "SMS/wsgi.py"
     }
   ]
 }
