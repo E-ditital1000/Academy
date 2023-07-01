@@ -19,11 +19,6 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns # new
 urlpatterns += staticfiles_urlpatterns() # new
 # handler404 = 'app.views.handler404'
