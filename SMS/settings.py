@@ -29,7 +29,7 @@ SECRET_KEY = 'o!ld8nrt4vc*h1zoey*wj48x*q0#ss12h=+zh)kk^6b3aygg=!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ednetwork.onrender.com', '.now.sh', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['#', '.now.sh', '127.0.0.1', 'localhost']
 
 # change the default user models to our custom model
 AUTH_USER_MODEL = 'accounts.User' 
