@@ -360,17 +360,17 @@ def course_registration_form(request):
     style = getSampleStyleSheet()
     normal = style["Normal"]
     normal.alignment = TA_CENTER
-    normal.fontName = "E-"
+    normal.fontName = "Helvetica"
     normal.fontSize = 12
     normal.leading = 18
-    title = "<b>DigitalNetwork UNIVERSITY OF TECHNOLOGY, TownHall</b>" 
+    title = "<b>E-DigitalNetwork UNIVERSITY OF TECHNOLOGY, ELVIS </b>" 
     title = Paragraph(title.upper(), normal)
     Story.append(title)
     style = getSampleStyleSheet()
     
     school = style["Normal"]
     school.alignment = TA_CENTER
-    school.fontName = "E-digitalNetwork"
+    school.fontName = "Helvetica"
     school.fontSize = 10
     school.leading = 18
     school_title = "<b>SCHOOL OF ELECTRICAL ENGINEERING & COMPUTING</b>"
@@ -381,7 +381,7 @@ def course_registration_form(request):
     Story.append(Spacer(1,0.1*inch))
     department = style["Normal"]
     department.alignment = TA_CENTER
-    department.fontName = "E-DigitalNetwork"
+    department.fontName = "Helvetica"
     department.fontSize = 9
     department.leading = 18
     department_title = "<b>DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING</b>"
@@ -461,7 +461,7 @@ def course_registration_form(request):
     style = getSampleStyleSheet()
     semester = style["Normal"]
     semester.alignment = TA_LEFT
-    semester.fontName = "E-DigitalNetwork"
+    semester.fontName = "Helvetica"
     semester.fontSize = 8
     semester.leading = 18
     semester_title = "<b>Total Second First Credit : " + str(first_semester_unit) + "</b>"
@@ -474,7 +474,7 @@ def course_registration_form(request):
     style = getSampleStyleSheet()
     semester = style["Normal"]
     semester.alignment = TA_LEFT
-    semester.fontName = "E-DigitalNetwork"
+    semester.fontName = "Helvetica"
     semester.fontSize = 9
     semester.leading = 18
     semester_title = "<b>SECOND SEMESTER</b>"
@@ -536,7 +536,7 @@ def course_registration_form(request):
     style = getSampleStyleSheet()
     certification = style["Normal"]
     certification.alignment = TA_JUSTIFY
-    certification.fontName = "E-DigitalNetwork"
+    certification.fontName = "Helvetica"
     certification.fontSize = 8
     certification.leading = 18
     student = Student.objects.get(student__pk=request.user.id)

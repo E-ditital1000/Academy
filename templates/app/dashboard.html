@@ -28,7 +28,7 @@
 		position: relative;
 		padding: 1rem;
 		transition: .5s;
-		background-color: #fff;
+		background-color: #00000081;
 		border-radius: 10px;
 	}
 
@@ -95,7 +95,8 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background-color: #fff;
+		background-color: #00000081;
+		color: white;
 	}
 
 	.users-count .card-count h2 {
@@ -143,7 +144,9 @@
 
 	.activities ul {
 		padding-left: .5rem;
+		
 	}
+
 
 	.activities ul li {
 		list-style-type: disc;
@@ -174,7 +177,7 @@
 			<h3><i class="fas fa-users bg-light-aqua"></i></h3>
 			<div class="text-right">
 				Students
-				<h2>12,040</h2>
+				<h2>2</h2>
 			</div>
 		</div>
 	</div>
@@ -183,7 +186,7 @@
 			<h3><i class="fas fa-users bg-light-orange"></i></h3>
 			<div class="text-right">
 				Lecturers
-				<h2>1,350</h2>
+				<h2>2</h2>
 			</div>
 		</div>
 	</div>
@@ -192,7 +195,7 @@
 			<h3><i class="fas fa-users bg-light-purple"></i></h3>
 			<div class="text-right">
 				Lab Assistance
-				<h2>500</h2>
+				<h2>3</h2>
 			</div>
 		</div>
 	</div>
@@ -201,7 +204,7 @@
 			<h3><i class="fas fa-users bg-light-red"></i></h3>
 			<div class="text-right">
 				Administrators
-				<h2>125</h2>
+				<h2>10</h2>
 			</div>
 		</div>
 	</div>
@@ -210,7 +213,7 @@
 			<h3><i class="fas fa-users bg-light-red"></i></h3>
 			<div class="text-right">
 				Librarian
-				<h2>300</h2>
+				<h2>1</h2>
 			</div>
 		</div>
 	</div>
@@ -219,7 +222,7 @@
 			<h3><i class="fas fa-users bg-light-purple"></i></h3>
 			<div class="text-right">
 				Supervisors
-				<h2>660</h2>
+				<h2>2</h2>
 			</div>
 		</div>
 	</div>
@@ -228,7 +231,7 @@
 			<h3><i class="fas fa-users bg-light-orange"></i></h3>
 			<div class="text-right pl-2">
 				Office Assistance
-				<h2>1,700</h2>
+				<h2>1</h2>
 			</div>
 		</div>
 	</div>
@@ -237,7 +240,7 @@
 			<h3><i class="fas fa-users bg-light-aqua"></i></h3>
 			<div class="text-right">
 				Others
-				<h2>1,250</h2>
+				<h2>2</h2>
 			</div>
 		</div>
 	</div>
@@ -266,10 +269,10 @@
 						<li>Added new admin user</li>
 						<li><span class="text-danger">Deleted</span> 1 video from CSE course</li>
 						<li>New documentation <span class="text-success">attached</span> for Arch</li>
-						<li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-						<li>Veniam magnam reiciendis modi explicabo sed aliquid natus</li>
-						<li>molestias corrupti suscipit similique ex adipisci praesentium</li>
-						<li>sint dolore, quo quibusdam ea, neque cupiditate.</li>
+						<li>We have a new lecturers</li>
+						<li>Upgrade our system</li>
+						<li>Weekend sucess stories from our students.</li>
+						<li>July 16 will be graduate class night</li>
 					</ul>
 				</div>
 			</div>
@@ -281,10 +284,10 @@
 						<li>Added new admin user</li>
 						<li><span class="text-danger">Deleted</span> 1 video from CSE course</li>
 						<li>New documentation <span class="text-success">attached</span> for Arch</li>
-						<li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-						<li>Veniam magnam reiciendis modi explicabo sed aliquid natus</li>
-						<li>molestias corrupti suscipit similique ex adipisci praesentium</li>
-						<li>sint dolore, quo quibusdam ea, neque cupiditate.</li>
+						<li>We have a new lecturers</li>
+						<li>Upgrade our system</li>
+						<li>Weekend sucess stories from our students.</li>
+						<li>July 16 will be graduate class night</li>
 					</ul>
 				</div>
 			</div>
@@ -339,15 +342,17 @@
 			'April',
 			'May',
 			'June',
+			'July',
 		];
 		const data = {
 			labels: labels,
 			datasets: [{
 				label: 'Students',
 				backgroundColor: 'rgba(86, 224, 224, 0.5)',
+				color: '#fff',
 				borderColor: 'rgb(86, 224, 224)',
 				hoverBorderWidth: 3,
-				data: [0, 10, 5, 2, 20, 30, 45]
+				data: [0, 1, 2, 2, 2, 3, 5]
 			}, {
 				label: 'Teachers',
 				backgroundColor: 'rgba(253, 174, 28, 0.5)',
@@ -386,12 +391,10 @@
 
 		// Setup
 		const labelsEnrollment = [
-			'2016',
-			'2017',
-			'2018',
-			'2019',
 			'2020',
 			'2021',
+			'2022',
+			'2023',
 		];
 		const dataEnrollment = {
 			labels: labelsEnrollment,
@@ -465,6 +468,7 @@
 			'2019',
 			'2020',
 			'2022',
+			'2023',
 		];
 		const dataGrade = {
 			labels: labelsGrade,
@@ -533,13 +537,13 @@
 				backgroundColor: 'rgba(86, 224, 224, 0.5)',
 				borderColor: 'rgb(86, 224, 224)',
 				hoverBorderWidth: 3,
-				data: [56]
+				data: [1]
 			}, {
 				label: 'Women',
 				backgroundColor: 'rgba(253, 174, 28, 0.5)',
 				borderColor: 'rgb(253, 174, 28)',
 				hoverBorderWidth: 3,
-				data: [44],
+				data: [1],
 			}]
 		};
 

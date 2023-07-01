@@ -11,6 +11,7 @@ from django.db import transaction
 from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
 
+
 from accounts.decorators import student_required, lecturer_required
 from .models import *
 from .forms import *
@@ -74,12 +75,11 @@ class QuizUpdateView(UpdateView):
 @login_required
 @lecturer_required
 def quiz_delete(request, slug, pk):
-    quiz = Quiz.objects.get(pk=pk)
+    quiz = get_object_or_404(Quiz, pk=pk)
     course = Course.objects.get(slug=slug)
     quiz.delete()
-    messages.success(request, f'successfuly deleted.')
-    return redirect('quiz_index', quiz.course.slug)
-
+    messages.success(request, 'Quiz successfully deleted.')
+    return redirect('quiz_index', course.slug)
 
 @method_decorator([login_required, lecturer_required], name='dispatch')
 class MCQuestionCreate(CreateView):
