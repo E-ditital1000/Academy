@@ -65,8 +65,6 @@ body {
           align-items: flex-start;
 }
 
-
-
 #side-nav a:hover,
 a:hover {
   text-decoration: none;
@@ -103,7 +101,7 @@ a.text-orange:hover {
 }
 
 .blue-gradient {
-  background: linear-gradient(40deg, #bb8218, #303f9f) !important;
+  background: linear-gradient(40deg, #45cafc, #303f9f) !important;
 }
 
 .blue-text {
@@ -520,13 +518,11 @@ li {
   -webkit-margin-start: -10px;
   z-index: 90;
   /*padding: 0.4rem 1rem;*/
-  background: #000000;
-  color:white;
+  background: #f5f5f5;
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
   -webkit-transition: 0.3s;
   transition: 0.3s;
- 
 }
 
 #top-navbar .nav-wrapper {
@@ -683,7 +679,7 @@ li {
   right: 0;
   min-width: 65px;
   line-height: 43px;
-  border: 1px solid #ff7b00;
+  border: 1px solid #e5e5e5;
   border-radius: 3px;
   /* background: #4272d7; */
   background: #343a40;
@@ -734,10 +730,10 @@ li {
   margin: 0px 5px;
 }
 
-.dropdown .profile-pic:hover {
+/*.dropdown .profile-pic:hover {
 	box-shadow: 0px 0px 0px 5px #ddd;
 	transition: .2s;
-  }
+  }*/
 .dropdown .dropdown-item i {
   margin-right: 8px;
 }
@@ -837,7 +833,7 @@ li {
 }
 
 .content .content-a a:hover {
-  color: #720c0c;
+  color: #fff;
   background-color: #007bff;
   border: 1px solid #007bff;
   -webkit-transition: 0.5s;
@@ -854,7 +850,7 @@ li {
 
 hr {
   margin: 10px 0px;
-  border: 0.5px solid #000000;
+  border: 0.5px solid #f3f2f2;
 }
 
 .content .sign-out {
@@ -1220,7 +1216,7 @@ a {
 }
 
 .bg-gradient-light {
-  background: linear-gradient(100deg, #45cafc, #303f9f) !important;
+  background: linear-gradient(100deg, #ff990033, #000000) !important;
 }
 
 /* ######################################### */
@@ -1279,7 +1275,7 @@ a {
 }
 
 .delete:hover {
-  background: #000000;
+  background: #dc3545;
   color: #fff;
 }
 
@@ -1299,8 +1295,6 @@ a {
 .dropdown-menu .delete {
   display: block;
   padding: 10px;
-  background-color: black;
-  color: white;
 }
 
 .pagination {
@@ -1357,7 +1351,7 @@ a {
           align-items: center;
   text-transform: uppercase;
   text-align: center;
-  background: linear-gradient(-40deg, #ffae00, #000000);
+  background: linear-gradient(-40deg, #45cafc, #303f9f);
   color: #fff;
   padding: 15px;
   margin-bottom: 10px;
@@ -1783,8 +1777,7 @@ a {
   login
   ############################################################################################################# */
 #login {
-  background: #00000049;
-  color:white;
+  background: #fff;
   padding-bottom: 15px;
   overflow: hidden;
   border-radius: 0.3em;
@@ -1827,21 +1820,21 @@ a {
 #login .login-title {
   padding: 20px;
   font-size: 16px;
-  background-color: #ffbb00 !important;
+  background-color: #33b5e5 !important;
   color: #fff;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .link {
-  color: #000000;
+  color: #2196f3;
   margin-top: 40px;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
 .link:hover {
-  color: #ffffff;
+  color: #0b21ad;
 }
 
 .close {
@@ -2079,9 +2072,9 @@ a {
   .mobile-hide-450 {
     display: none;
   }
-  .drop-down{
+  /* .drop-down{
 	  display: block;
-	} 
+	} */
 }
 
 .edit-btn i {
