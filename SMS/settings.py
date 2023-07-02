@@ -46,10 +46,16 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'cloudinary',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'django_cleanup',
     
 ]
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+STATIC_URL = 'https://res.cloudinary.com/dhauchzdq/'
+
 
 # Cloudinary configuration
 cloudinary.config(
@@ -57,6 +63,13 @@ cloudinary.config(
     api_key='925253475554343',
     api_secret='ZUGD48p7y1_ERNIsK9jIybc2hQg'
 )
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dhauchzdq',
+    'API_KEY': '925253475554343',
+    'API_SECRET': 'ZUGD48p7y1_ERNIsK9jIybc2hQg',
+}
+
 
 # Thired party apps
 THIRED_PARTY_APPS = [
