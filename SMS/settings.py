@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import posixpath
 import environ
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Environment variables
 env = environ.Env()
@@ -47,12 +50,21 @@ DJANGO_APPS = [
     
 ]
 
+# Cloudinary configuration
+cloudinary.config(
+    cloud_name='dhauchzdq',
+    api_key='925253475554343',
+    api_secret='ZUGD48p7y1_ERNIsK9jIybc2hQg'
+)
+
 # Thired party apps
 THIRED_PARTY_APPS = [
     'crispy_forms',
     'rest_framework',
     'channels',
 ]
+
+
 
 # Custom apps
 PROJECT_APPS = [
