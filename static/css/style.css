@@ -1783,7 +1783,8 @@ a {
   login
   ############################################################################################################# */
 #login {
-  background: #ffbb00b6;
+  background: #00000049;
+  color:white;
   padding-bottom: 15px;
   overflow: hidden;
   border-radius: 0.3em;
