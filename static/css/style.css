@@ -521,6 +521,7 @@ li {
   z-index: 90;
   /*padding: 0.4rem 1rem;*/
   background: #000000;
+  color:white;
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
   -webkit-transition: 0.3s;
@@ -682,7 +683,7 @@ li {
   right: 0;
   min-width: 65px;
   line-height: 43px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #ff7b00;
   border-radius: 3px;
   /* background: #4272d7; */
   background: #343a40;
@@ -733,10 +734,10 @@ li {
   margin: 0px 5px;
 }
 
-/*.dropdown .profile-pic:hover {
+.dropdown .profile-pic:hover {
 	box-shadow: 0px 0px 0px 5px #ddd;
 	transition: .2s;
-  }*/
+  }
 .dropdown .dropdown-item i {
   margin-right: 8px;
 }
