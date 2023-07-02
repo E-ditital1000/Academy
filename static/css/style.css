@@ -103,7 +103,7 @@ a.text-orange:hover {
 }
 
 .blue-gradient {
-  background: linear-gradient(40deg, #bb8218, #0505055d) !important;
+  background: linear-gradient(40deg, #bb8218, #303f9f) !important;
 }
 
 .blue-text {
@@ -1220,7 +1220,7 @@ a {
 }
 
 .bg-gradient-light {
-  background: linear-gradient(100deg, #ff990033, #000000) !important;
+  background: linear-gradient(100deg, #45cafc, #303f9f) !important;
 }
 
 /* ######################################### */
