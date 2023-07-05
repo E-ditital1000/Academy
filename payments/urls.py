@@ -8,7 +8,7 @@ urlpatterns = [
     path('stripe/', views.payment_stripe, name="stripe"),
     path('coinbase/', views.payment_coinbase, name="coinbase"),
     path('paylike/', views.payment_paylike, name="paylike"),
-    
+    path('mtn-mobile-money-payment/', views.mtn_mobile_money_payment, name='mtn_mobile_money_payment'),
     path('stripe-charge/', views.stripe_charge, name='stripe_charge'),
     path('gopay-charge/', views.gopay_charge, name="gopay_charge"),
 

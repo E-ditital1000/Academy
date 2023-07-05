@@ -190,7 +190,7 @@ def staff_add_view(request):
         form = StaffAddForm()
 
     context = {
-        'title': 'Lecturer Add | DjangoSMS',
+        'title': 'Lecturer Add | EdigitalNetwork',
         'form': form,
     }
 
@@ -214,7 +214,7 @@ def edit_staff(request, pk):
     else:
         form = ProfileUpdateForm(instance=instance)
     return render(request, 'accounts/edit_lecturer.html', {
-        'title': 'Edit Lecturer | DjangoSMS',
+        'title': 'Edit Lecturer | EdigitalNetwork',
         'form': form,
     })
 
@@ -311,7 +311,7 @@ class StudentListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Students | DjangoSMS"
+        context['title'] = "Students | EdigitalNetwork"
         return context
 
 

@@ -182,3 +182,38 @@ def invoice_detail(request, slug):
     return render(request, 'invoice_detail.html', context={
         'invoice': Invoice.objects.get(invoice_code=slug)
     })
+
+from django.shortcuts import render
+from django.http import JsonResponse
+from django.conf import settings
+from django.shortcuts import redirect
+from django.views.generic.base import TemplateView
+
+from django.http import JsonResponse
+
+from django.shortcuts import render
+
+def mtn_mobile_money_payment(request):
+    # Handle the POST request to process the payment
+    if request.method == 'POST':
+        # Retrieve the data from the request
+        invoice_id = request.POST.get('invoiceId')
+        external_id = request.POST.get('externalId')
+        reference_id = request.POST.get('referenceId')
+        payment_reference = request.POST.get('paymentReference')
+        payee_party_id = request.POST.get('payee.partyId')
+        payee_first_name = request.POST.get('payeeFirstName')
+        payee_last_name = request.POST.get('payeeLastName')
+        amount = request.POST.get('amount')
+        currency = request.POST.get('currency')
+        status = request.POST.get('status')
+        expiry_datetime = request.POST.get('expiryDateTime')
+
+        # Process the payment and update your system's database or perform other necessary operations
+        # ...
+
+        # Return a JSON response to indicate the success/failure of the payment processing
+        return JsonResponse({'status': 'success', 'message': 'Payment processed successfully'})
+
+    # Render the template with the MTN Mobile Money widget
+    return render(request, 'mtn_mobile_money_payment.html')

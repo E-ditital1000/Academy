@@ -52,7 +52,7 @@
 #     intent = stripe.PaymentIntent.create(
 #         amount=calculate_order_amount(data['items']),
 #         currency=data['currency']
-#     )
+#                                )
 
 #     try:
 #         # Send publishable key and PaymentIntent details to client

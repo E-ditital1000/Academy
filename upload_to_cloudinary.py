@@ -1,7 +1,9 @@
-
 import os
 import cloudinary.uploader
 import cloudinary.api
+from django.shortcuts import render
+from django.http import JsonResponse
+from .forms import VideoUploadForm
 import imghdr
 
 
@@ -12,19 +14,40 @@ cloudinary.config(
     api_secret='ZUGD48p7y1_ERNIsK9jIybc2hQg'
 )
 
-# Path to your static files directory
-static_dir = os.path.join(os.path.dirname(__file__), 'static')
 
-# Iterate over files in the static directory
-for root, dirs, files in os.walk(static_dir):
-    for file in files:
-        file_path = os.path.join(root, file)
+def handle_video_upload(request):
+    if request.method == 'POST':
+        form = VideoUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            video = form.cleaned_data['video']
 
-        # Validate file format
-        if imghdr.what(file_path) is None:
-            print(f"Skipping file {file} due to invalid image format")
-            continue
+            # Validate file format
+            if imghdr.what(video) is None:
+                return JsonResponse({'error': 'Invalid file format. Only image files are allowed.'})
 
-        # Upload the file to Cloudinary
-        upload_result = cloudinary.uploader.upload(file_path, folder='your_cloudinary_folder')
-        print(f"Uploaded file {file}: {upload_result['secure_url']}")
+            # Check video file size
+            max_file_size = 50 * 1024 * 1024  # 50 MB
+            if video.size > max_file_size:
+                return JsonResponse({'error': 'Video file size exceeds the maximum limit (50MB)'})
+
+            # Upload the video file to Cloudinary
+            upload_result = cloudinary.uploader.upload_large(
+                video,
+                resource_type='video',
+                folder='your_cloudinary_folder'
+            )
+
+            # Handle the upload response
+            if 'error' in upload_result:
+                return JsonResponse({'error': upload_result['error'].message})
+            else:
+                # Save the video URL or perform other operations
+                video_url = upload_result['secure_url']
+                # ... Save the video URL or perform other operations ...
+
+                return JsonResponse({'success': 'Video uploaded successfully', 'url': video_url})
+        else:
+            return JsonResponse({'error': 'Invalid form data'})
+    else:
+        form = VideoUploadForm()
+    return render(request, 'upload_video_form.html', {'form': form})

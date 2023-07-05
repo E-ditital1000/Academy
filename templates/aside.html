@@ -36,6 +36,11 @@
 			<li class="{% if request.path == dash %}active{% endif %}">
 				<a href="{% url 'dashboard' %}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
 			</li>
+			<li class="{% if request.path == '/mtn-mobile-money-payment/' %}active{% endif %}">
+				<a href="{% url 'mtn_mobile_money_payment' %}">
+					<i class="fas fa-money"></i> MTN Mobile Money 
+				</a>
+			</li>
 			{% endif %}
 			<li class="{% if request.path == hom %}active{% endif %}">
 				<a href="{% url 'home' %}"><i class="fas fa-home"></i>Home</a>
