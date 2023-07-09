@@ -30,7 +30,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'o!ld8nrt4vc*h1zoey*wj48x*q0#ss12h=+zh)kk^6b3aygg=!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['ednetwork.onrender.com', '.now.sh', '127.0.0.1', 'localhost']
 
@@ -212,8 +212,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com' # Here i'm using gmail as the email host, but you can change it
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = ('techelvis7@gmail.com')
-EMAIL_HOST_PASSWORD = ('Sorccelvistech@123')
+EMAIL_HOST_USER = ('')
+EMAIL_HOST_PASSWORD = ('')
 
 # crispy config
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
