@@ -19,9 +19,7 @@ from .forms import (
 from .models import Program, Course, CourseAllocation, Upload, UploadVideo
 
 
-# ########################################################
 # Program views
-# ########################################################
 @login_required
 def program_view(request):
     programs = Program.objects.all()
@@ -43,10 +41,10 @@ def program_add(request):
         form = ProgramForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, request.POST.get('title') + ' program has been created.')
+            messages.success(request, f'{request.POST.get("title")} program has been created.')
             return redirect('programs')
         else:
-            messages.error(request, 'Correct the error(S) below.')
+            messages.error(request, 'Correct the error(s) below.')
     else:
         form = ProgramForm()
 
@@ -70,7 +68,7 @@ def program_detail(request, pk):
     return render(request, 'course/program_single.html', {
         'title': program.title,
         'program': program, 'courses': courses, 'credits': credits
-    }, )
+    })
 
 
 @login_required
@@ -82,7 +80,7 @@ def program_edit(request, pk):
         form = ProgramForm(request.POST, instance=program)
         if form.is_valid():
             form.save()
-            messages.success(request, str(request.POST.get('title')) + ' program has been updated.')
+            messages.success(request, f'{request.POST.get("title")} program has been updated.')
             return redirect('programs')
     else:
         form = ProgramForm(instance=program)
@@ -99,21 +97,19 @@ def program_delete(request, pk):
     program = Program.objects.get(pk=pk)
     title = program.title
     program.delete()
-    messages.success(request, 'Program ' + title + ' has been deleted.')
+    messages.success(request, f'Program {title} has been deleted.')
 
     return redirect('programs')
-# ########################################################
 
-# ########################################################
+
 # Course views
-# ########################################################
 @login_required
 def course_single(request, slug):
     course = Course.objects.get(slug=slug)
     files = Upload.objects.filter(course__slug=slug)
     videos = UploadVideo.objects.filter(course__slug=slug)
 
-    # lecturers = User.objects.filter(allocated_lecturer__pk=course.id)
+    lecturers = User.objects.filter(allocated_lecturer__pk=course.id)
     lecturers = CourseAllocation.objects.filter(courses__pk=course.id)
 
     return render(request, 'course/course_single.html', {
@@ -123,7 +119,7 @@ def course_single(request, slug):
         'videos': videos,
         'lecturers': lecturers,
         'media_url': settings.MEDIA_ROOT,
-    }, )
+    })
 
 
 @login_required
@@ -132,12 +128,12 @@ def course_add(request, pk):
     users = User.objects.all()
     if request.method == 'POST':
         form = CourseAddForm(request.POST)
-        course_name = request.POST.get('title')
-        course_code = request.POST.get('code')
         if form.is_valid():
-            form.save()
-            messages.success(request, (course_name + '(' + course_code + ')' + ' has been created.'))
-            return redirect('program_detail', pk=request.POST.get('program'))
+            course = form.save(commit=False)
+            course.program = Program.objects.get(pk=pk)
+            course.save()
+            messages.success(request, f'{course.title} ({course.code}) has been created.')
+            return redirect('program_detail', pk=pk)
         else:
             messages.error(request, 'Correct the error(s) below.')
     else:
@@ -146,7 +142,7 @@ def course_add(request, pk):
     return render(request, 'course/course_add.html', {
         'title': "Add Course | DjangoSMS",
         'form': form, 'program': pk, 'users': users
-    }, )
+    })
 
 
 @login_required
@@ -155,12 +151,10 @@ def course_edit(request, slug):
     course = get_object_or_404(Course, slug=slug)
     if request.method == 'POST':
         form = CourseAddForm(request.POST, instance=course)
-        course_name = request.POST.get('title')
-        course_code = request.POST.get('code')
         if form.is_valid():
             form.save()
-            messages.success(request, (course_name + '(' + course_code + ')' + ' has been updated.'))
-            return redirect('program_detail', pk=request.POST.get('program'))
+            messages.success(request, f'{course.title} ({course.code}) has been updated.')
+            return redirect('program_detail', pk=course.program.pk)
         else:
             messages.error(request, 'Correct the error(s) below.')
     else:
@@ -168,51 +162,47 @@ def course_edit(request, slug):
 
     return render(request, 'course/course_add.html', {
         'title': "Edit Course | DjangoSMS",
-        # 'form': form, 'program': pk, 'course': pk
-        'form': form
-    }, )
+        'form': form, 'course': course
+    })
 
 
 @login_required
 @lecturer_required
 def course_delete(request, slug):
     course = Course.objects.get(slug=slug)
-    # course_name = course.title
+    course_name = course.title
     course.delete()
-    messages.success(request, 'Course ' + course.title + ' has been deleted.')
+    messages.success(request, f'Course {course_name} has been deleted.')
 
-    return redirect('program_detail', pk=course.program.id)
-# ########################################################
+    return redirect('program_detail', pk=course.program.pk)
 
 
-# ########################################################
 # Course Allocation
-# ########################################################
 @method_decorator([login_required], name='dispatch')
 class CourseAllocationFormView(CreateView):
     form_class = CourseAllocationForm
     template_name = 'course/course_allocation_form.html'
 
     def get_form_kwargs(self):
-        kwargs = super(CourseAllocationFormView, self).get_form_kwargs()
+        kwargs = super().get_form_kwargs()
         kwargs['user'] = self.request.user
         return kwargs
 
     def form_valid(self, form):
-        # if a staff has been allocated a course before update it else create new
         lecturer = form.cleaned_data['lecturer']
         selected_courses = form.cleaned_data['courses']
-        courses = ()
+        courses = []
         for course in selected_courses:
-            courses += (course.pk,)
-        # print(courses)
+            courses.append(course.pk)
+        print(courses)
 
         try:
             a = CourseAllocation.objects.get(lecturer=lecturer)
-        except:
+        except CourseAllocation.DoesNotExist:
             a = CourseAllocation.objects.create(lecturer=lecturer)
-        for i in range(0, selected_courses.count()):
-            a.courses.add(courses[i])
+        for course_pk in courses:
+            course = Course.objects.get(pk=course_pk)
+            a.courses.add(course)
             a.save()
         return redirect('course_allocation_view')
 
@@ -239,7 +229,7 @@ def edit_allocated_course(request, pk):
         form = EditCourseAllocationForm(request.POST, instance=allocated)
         if form.is_valid():
             form.save()
-            messages.success(request, 'course assigned has been updated.')
+            messages.success(request, 'Allocated course has been updated.')
             return redirect('course_allocation_view')
     else:
         form = EditCourseAllocationForm(instance=allocated)
@@ -247,7 +237,7 @@ def edit_allocated_course(request, pk):
     return render(request, 'course/course_allocation_form.html', {
         'title': "Edit Course Allocated | DjangoSMS",
         'form': form, 'allocated': pk
-    }, )
+    })
 
 
 @login_required
@@ -255,25 +245,21 @@ def edit_allocated_course(request, pk):
 def deallocate_course(request, pk):
     course = CourseAllocation.objects.get(pk=pk)
     course.delete()
-    messages.success(request, 'successfully deallocate!')
+    messages.success(request, 'Successfully deallocated!')
     return redirect("course_allocation_view")
-# ########################################################
 
 
-# ########################################################
 # File Upload views
-# ########################################################
 @login_required
 @lecturer_required
 def handle_file_upload(request, slug):
     course = Course.objects.get(slug=slug)
     if request.method == 'POST':
         form = UploadFormFile(request.POST, request.FILES, {'course': course})
-        # file_name = request.POST.get('name')
         if form.is_valid():
             form.save()
-            messages.success(request, (request.POST.get('title') + ' has been uploaded.'))
-            return redirect('course_detail', slug=slug)
+            messages.success(request, f'{request.POST.get("title")} has been uploaded.')
+            return redirect('course_single', slug=slug)
     else:
         form = UploadFormFile()
     return render(request, 'upload/upload_file_form.html', {
@@ -286,14 +272,13 @@ def handle_file_upload(request, slug):
 @lecturer_required
 def handle_file_edit(request, slug, file_id):
     course = Course.objects.get(slug=slug)
-    instance = Upload.objects.get(pk=file_id)
+    instance = get_object_or_404(Upload, pk=file_id)
     if request.method == 'POST':
         form = UploadFormFile(request.POST, request.FILES, instance=instance)
-        # file_name = request.POST.get('name')
         if form.is_valid():
             form.save()
-            messages.success(request, (request.POST.get('title') + ' has been updated.'))
-            return redirect('course_detail', slug=slug)
+            messages.success(request, f'{request.POST.get("title")} has been updated.')
+            return redirect('course_single', slug=slug)
     else:
         form = UploadFormFile(instance=instance)
 
@@ -304,15 +289,14 @@ def handle_file_edit(request, slug, file_id):
 
 def handle_file_delete(request, slug, file_id):
     file = Upload.objects.get(pk=file_id)
-    # file_name = file.name
+    file_name = file.name
     file.delete()
 
-    messages.success(request, (file.title + ' has been deleted.'))
-    return redirect('course_detail', slug=slug)
+    messages.success(request, f'{file.title} has been deleted.')
+    return redirect('course_single', slug=slug)
 
-# ########################################################
+
 # Video Upload views
-# ########################################################
 @login_required
 @lecturer_required
 def handle_video_upload(request, slug):
@@ -321,8 +305,8 @@ def handle_video_upload(request, slug):
         form = UploadFormVideo(request.POST, request.FILES, {'course': course})
         if form.is_valid():
             form.save()
-            messages.success(request, (request.POST.get('title') + ' has been uploaded.'))
-            return redirect('course_detail', slug=slug)
+            messages.success(request, f'{request.POST.get("title")} has been uploaded.')
+            return redirect('course_single', slug=slug)
     else:
         form = UploadFormVideo()
     return render(request, 'upload/upload_video_form.html', {
@@ -332,7 +316,7 @@ def handle_video_upload(request, slug):
 
 
 @login_required
-# @lecturer_required
+@lecturer_required
 def handle_video_single(request, slug, video_slug):
     course = get_object_or_404(Course, slug=slug)
     video = get_object_or_404(UploadVideo, slug=video_slug)
@@ -343,13 +327,13 @@ def handle_video_single(request, slug, video_slug):
 @lecturer_required
 def handle_video_edit(request, slug, video_slug):
     course = Course.objects.get(slug=slug)
-    instance = UploadVideo.objects.get(slug=video_slug)
+    instance = get_object_or_404(UploadVideo, slug=video_slug)
     if request.method == 'POST':
         form = UploadFormVideo(request.POST, request.FILES, instance=instance)
         if form.is_valid():
             form.save()
-            messages.success(request, (request.POST.get('title') + ' has been updated.'))
-            return redirect('course_detail', slug=slug)
+            messages.success(request, f'{request.POST.get("title")} has been updated.')
+            return redirect('course_single', slug=slug)
     else:
         form = UploadFormVideo(instance=instance)
 
@@ -360,78 +344,56 @@ def handle_video_edit(request, slug, video_slug):
 
 def handle_video_delete(request, slug, video_slug):
     video = get_object_or_404(UploadVideo, slug=video_slug)
-    # video = UploadVideo.objects.get(slug=video_slug)
     video.delete()
 
-    messages.success(request, (video.title + ' has been deleted.'))
-    return redirect('course_detail', slug=slug)
-# ########################################################
+    messages.success(request, f'{video.title} has been deleted.')
+    return redirect('course_single', slug=slug)
 
 
-# ########################################################
 # Course Registration
-# ########################################################
 @login_required
 @student_required
 def course_registration(request):
     if request.method == 'POST':
-        ids = ()
-        data = request.POST.copy()
-        data.pop('csrfmiddlewaretoken', None)  # remove csrf_token
-        for key in data.keys():
-            ids = ids + (str(key),)
-        for s in range(0, len(ids)):
-            student = Student.objects.get(student__pk=request.user.id)
-            course = Course.objects.get(pk=ids[s])
-            obj = TakenCourse.objects.create(student=student, course=course)
-            obj.save()
-            messages.success(request, 'Courses Registered Successfully!')
+        course_ids = request.POST.getlist('course_ids')
+        student = get_object_or_404(Student, student=request.user)
+        
+        for course_id in course_ids:
+            course = get_object_or_404(Course, pk=course_id)
+            TakenCourse.objects.create(student=student, course=course)
+        
+        messages.success(request, 'Courses registered successfully!')
         return redirect('course_registration')
     else:
-        # student = Student.objects.get(student__pk=request.user.id)
-        student = get_object_or_404(Student, student__id=request.user.id)
-        taken_courses = TakenCourse.objects.filter(student__student__id=request.user.id)
-        t = ()
-        for i in taken_courses:
-            t += (i.course.pk,)
+        student = get_object_or_404(Student, student=request.user)
         current_semester = Semester.objects.get(is_current_semester=True)
-
-        courses = Course.objects.filter(program__pk=student.department.id, level=student.level, semester=current_semester
-        ).exclude(id__in=t).order_by('year')
-        all_courses = Course.objects.filter(level=student.level, program__pk=student.department.id)
-
-        no_course_is_registered = False  # Check if no course is registered
-        all_courses_are_registered = False
-
-        registered_courses = Course.objects.filter(level=student.level).filter(id__in=t)
-        if registered_courses.count() == 0:  # Check if number of registered courses is 0
-            no_course_is_registered = True
-
-        if registered_courses.count() == all_courses.count():
-            all_courses_are_registered = True
-
-        total_first_semester_credit = 0
-        total_sec_semester_credit = 0
-        total_registered_credit = 0
-        for i in courses:
-            if i.semester == "First":
-                total_first_semester_credit += int(i.credit)
-            if i.semester == "Second":
-                total_sec_semester_credit += int(i.credit)
-        for i in registered_courses:
-            total_registered_credit += int(i.credit)
+        
+        taken_courses = TakenCourse.objects.filter(student=student)
+        registered_course_ids = taken_courses.values_list('course__id', flat=True)
+        
+        courses = Course.objects.filter(program=student.department, level=student.level, semester=current_semester).exclude(id__in=registered_course_ids).order_by('year')
+        all_courses = Course.objects.filter(level=student.level, program=student.department)
+        
+        total_first_semester_credit = courses.filter(semester='First').aggregate(Sum('credit'))['credit__sum'] or 0
+        total_sec_semester_credit = courses.filter(semester='Second').aggregate(Sum('credit'))['credit__sum'] or 0
+        total_registered_credit = taken_courses.aggregate(Sum('course__credit'))['course__credit__sum'] or 0
+        
+        no_course_is_registered = taken_courses.count() == 0
+        all_courses_are_registered = registered_course_ids.count() == all_courses.count()
+        
         context = {
-            "is_calender_on": True,
-            "all_courses_are_registered": all_courses_are_registered,
-            "no_course_is_registered": no_course_is_registered,
-            "current_semester": current_semester,
-            "courses": courses,
-            "total_first_semester_credit": total_first_semester_credit,
-            "total_sec_semester_credit": total_sec_semester_credit,
-            "registered_courses": registered_courses,
-            "total_registered_credit": total_registered_credit,
-            "student": student,
+            'is_calender_on': True,
+            'all_courses_are_registered': all_courses_are_registered,
+            'no_course_is_registered': no_course_is_registered,
+            'current_semester': current_semester,
+            'courses': courses,
+            'total_first_semester_credit': total_first_semester_credit,
+            'total_sec_semester_credit': total_sec_semester_credit,
+            'registered_courses': taken_courses,
+            'total_registered_credit': total_registered_credit,
+            'student': student,
         }
+        
         return render(request, 'course/course_registration.html', context)
 
 
@@ -439,32 +401,27 @@ def course_registration(request):
 @student_required
 def course_drop(request):
     if request.method == 'POST':
-        ids = ()
-        data = request.POST.copy()
-        data.pop('csrfmiddlewaretoken', None)  # remove csrf_token
-        for key in data.keys():
-            ids = ids + (str(key),)
-        for s in range(0, len(ids)):
-            student = Student.objects.get(student__pk=request.user.id)
-            course = Course.objects.get(pk=ids[s])
-            obj = TakenCourse.objects.get(student=student, course=course)
-            obj.delete()
-            messages.success(request, 'Successfully Dropped!')
-        return redirect('course_registration')
-# ########################################################
+        course_ids = request.POST.getlist('course_ids')
+        student = get_object_or_404(Student, student=request.user)
+        
+        TakenCourse.objects.filter(student=student, course__id__in=course_ids).delete()
+        
+        messages.success(request, 'Courses dropped successfully!')
+        
+    return redirect('course_registration')
 
 
 @login_required
 def user_course_list(request):
     if request.user.is_lecturer:
-        courses = Course.objects.filter(allocated_course__lecturer__pk=request.user.id)
+        courses = Course.objects.filter(allocated_course__lecturer=request.user)
 
         return render(request, 'course/user_course_list.html', {'courses': courses})
 
     elif request.user.is_student:
-        student = Student.objects.get(student__pk=request.user.id)
-        taken_courses = TakenCourse.objects.filter(student__student__id=student.student.id)
-        courses = Course.objects.filter(level=student.level).filter(program__pk=student.department.id)
+        student = get_object_or_404(Student, student=request.user)
+        taken_courses = TakenCourse.objects.filter(student=student)
+        courses = Course.objects.filter(level=student.level, program=student.department)
 
         return render(request, 'course/user_course_list.html', {
             'student': student,

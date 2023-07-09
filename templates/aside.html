@@ -59,6 +59,9 @@
 			<li class="{% if request.path == stu %}active{% endif %}">
 				<a href="{% url 'student_list' %}"><i class="fas fa-user-graduate"></i>Students</a>
 			</li>
+			<li class="{% if request.path == pro %}active{% endif %}">
+				<a href="{% url 'programs' %}"><i class="fas fa-book-open"></i>Programs & Courses</a>
+			</li>
 			{% endif %}
 
 			{% if request.user.is_lecturer or request.user.is_student %}
@@ -66,10 +69,6 @@
 				<a href="{% url 'user_course_list' %}"><i class="fas fa-book"></i>My Courses</a>
 			</li>
 			{% endif %}
-
-			<li class="{% if request.path == pro %}active{% endif %}">
-				<a href="{% url 'programs' %}"><i class="fas fa-book-open"></i>Programs & Courses</a>
-			</li>
 
 			{% if request.user.is_superuser or request.user.is_lecturer %}
 			<li class="{% if request.path == qce %}active{% endif %}">
