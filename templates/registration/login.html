@@ -4,7 +4,9 @@
 {% block content %}
 
 <div id="login">
-  <div class="login-title blue-gradient"><i class="fas fa-lock"></i>Sign in</div>
+   <div class="login-title blue-gradient">
+    <img src="{% static 'img/logo.png' %}" alt="Logo" width="30%" height="30%" class="logo-image"> <br> <i class="fas fa-lock"></i>Sign in
+  </div>
 
   <form action="" method="POST" id="login-form">{% csrf_token %}
     <div class="form-group px-3">
