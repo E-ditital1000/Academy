@@ -57,7 +57,6 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 cloudinary_storage.storage.RawMediaCloudinaryStorage
 cloudinary_storage.storage.VideoMediaCloudinaryStorage
 
-
 STATIC_URL = 'https://res.cloudinary.com/dhauchzdq/'
 
 
