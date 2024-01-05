@@ -210,69 +210,57 @@ class EmailValidationOnForgotPassword(PasswordResetForm):
             return email
 
 
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from .models import Student
+
 class ParentAddForm(UserCreationForm):
     username = forms.CharField(
         max_length=30,
-        widget=forms.TextInput(
-            attrs={
-                'type': 'text',
-                'class': 'form-control',
-            }
-        ),
+        widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control'}),
         label="Username",
     )
+
+    first_name = forms.CharField(
+        max_length=30,
+        widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control'}),
+        label="First Name",
+    )
+
+    last_name = forms.CharField(
+        max_length=30,
+        widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control'}),
+        label="Last Name",
+    )
+
+    email = forms.EmailField(
+        widget=forms.TextInput(attrs={'type': 'email', 'class': 'form-control'}),
+        label="Email Address",
+    )
+
+    password1 = forms.CharField(
+        max_length=30,
+        widget=forms.PasswordInput(attrs={'class': 'form-control'}),
+        label="Password",
+    )
+
+    password2 = forms.CharField(
+        max_length=30,
+        widget=forms.PasswordInput(attrs={'class': 'form-control'}),
+        label="Password Confirmation",
+    )
+
     address = forms.CharField(
         max_length=30,
-        widget=forms.TextInput(
-            attrs={
-                'type': 'text',
-                'class': 'form-control',
-            }
-        ),
+        widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control'}),
         label="Address",
     )
 
     phone = forms.CharField(
         max_length=30,
-        widget=forms.TextInput(
-            attrs={
-                'type': 'text',
-                'class': 'form-control',
-            }
-        ),
+        widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control'}),
         label="Mobile No.",
-    )
-
-    first_name = forms.CharField(
-        max_length=30,
-        widget=forms.TextInput(
-            attrs={
-                'type': 'text',
-                'class': 'form-control',
-            }
-        ),
-        label="First name",
-    )
-
-    last_name = forms.CharField(
-        max_length=30,
-        widget=forms.TextInput(
-            attrs={
-                'type': 'text',
-                'class': 'form-control',
-            }
-        ),
-        label="Last name",
-    )
-
-    email = forms.EmailField(
-        widget=forms.TextInput(
-            attrs={
-                'type': 'email',
-                'class': 'form-control',
-            }
-        ),
-        label="Email Address",
     )
 
     student = forms.ModelChoiceField(
@@ -284,25 +272,19 @@ class ParentAddForm(UserCreationForm):
     relation_ship = forms.CharField(
         widget=forms.Select(
             choices=RELATION_SHIP,
-            attrs={'class': 'browser-default custom-select form-control',}
+            attrs={'class': 'browser-default custom-select form-control'}
         ),
+        label="Relationship",
     )
 
-    password1 = forms.CharField(
-        max_length=30, widget=forms.TextInput(attrs={'type': 'password', 'class': 'form-control', }),
-        label="Password", )
-
-    password2 = forms.CharField(
-        max_length=30, widget=forms.TextInput(attrs={'type': 'password', 'class': 'form-control', }),
-        label="Password Confirmation", )
-
-    # def validate_email(self):
-    #     email = self.cleaned_data['email']
-    #     if User.objects.filter(email__iexact=email, is_active=True).exists():
-    #         raise forms.ValidationError("Email has taken, try another email address. ")
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if User.objects.filter(email__iexact=email, is_active=True).exists():
+            raise forms.ValidationError("Email has been taken, please try another email address.")
 
     class Meta(UserCreationForm.Meta):
         model = User
+
 
     @transaction.atomic()
     def save(self):

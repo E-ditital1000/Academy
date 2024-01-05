@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %} {{ title }} | DjangoSMS{% endblock title %}
+{% block title %} {{ title }} | E-Digital Network{% endblock title %}
 {% load static %}
 {% load i18n %}
 {% block content %}
@@ -81,7 +81,7 @@
             <div class="dashboard-description">
                 <p><strong>School: </strong>{{ student.get_student_school }}</p>
                 <p><strong>Department: </strong>{{ student.department }}</p>
-                <p><strong>Level: </strong>Certificate</p>
+                <p><strong>Level: </strong>{{ student.get_level_display }}</p>
             </div>
             {% endif %}
             <!--{{ student.level }}-->
