@@ -29,7 +29,7 @@ def program_view(request):
         programs = Program.objects.filter(title__icontains=program_filter)
 
     return render(request, 'course/program_list.html', {
-        'title': "Programs | DjangoSMS",
+        'title': "Programs | E-Digital Network",
         'programs': programs,
     })
 
@@ -49,7 +49,7 @@ def program_add(request):
         form = ProgramForm()
 
     return render(request, 'course/program_add.html', {
-        'title': "Add Program | DjangoSMS",
+        'title': "Add Program | E-Digital Network",
         'form': form,
     })
 
@@ -86,7 +86,7 @@ def program_edit(request, pk):
         form = ProgramForm(instance=program)
 
     return render(request, 'course/program_add.html', {
-        'title': "Edit Program | DjangoSMS",
+        'title': "Edit Program | E-Digital Network",
         'form': form
     })
 
@@ -140,7 +140,7 @@ def course_add(request, pk):
         form = CourseAddForm(initial={'program': Program.objects.get(pk=pk)})
 
     return render(request, 'course/course_add.html', {
-        'title': "Add Course | DjangoSMS",
+        'title': "Add Course | E-Digital Network",
         'form': form, 'program': pk, 'users': users
     })
 
@@ -161,7 +161,7 @@ def course_edit(request, slug):
         form = CourseAddForm(instance=course)
 
     return render(request, 'course/course_add.html', {
-        'title': "Edit Course | DjangoSMS",
+        'title': "Edit Course | E-Digital Network",
         'form': form, 'course': course
     })
 
@@ -263,7 +263,7 @@ def handle_file_upload(request, slug):
     else:
         form = UploadFormFile()
     return render(request, 'upload/upload_file_form.html', {
-        'title': "File Upload | DjangoSMS",
+        'title': "File Upload | E-Digital Network",
         'form': form, 'course': course
     })
 
