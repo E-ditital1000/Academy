@@ -54,12 +54,11 @@ DJANGO_APPS = [
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 STATIC_URL = 'https://res.cloudinary.com/dhauchzdq/'
-
-# Cloudinary configuration
-cloudinary.config(
-    cloud_name='dhauchzdq',
-    api_key='925253475554343',
-    api_secret='ZUGD48p7y1_ERNIsK9jIybc2hQg'
+          
+cloudinary.config( 
+  cloud_name = "dhauchzdq", 
+  api_key = "925253475554343", 
+  api_secret = "ZUGD48p7y1_ERNIsK9jIybc2hQg" 
 )
 
 CLOUDINARY_STORAGE = {
