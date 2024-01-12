@@ -397,18 +397,25 @@ def course_registration(request):
         return render(request, 'course/course_registration.html', context)
 
 
+from django.urls import reverse
+from django.shortcuts import get_list_or_404
+
+# ...
+
 @login_required
 @student_required
 def course_drop(request):
     if request.method == 'POST':
         course_ids = request.POST.getlist('course_ids')
         student = get_object_or_404(Student, student=request.user)
-        
+
+        # Ensure that the user attempting to drop courses is the actual owner
         TakenCourse.objects.filter(student=student, course__id__in=course_ids).delete()
-        
+
         messages.success(request, 'Courses dropped successfully!')
-        
-    return redirect('course_registration')
+
+    return redirect(reverse('course_registration'))
+
 
 
 @login_required
@@ -431,3 +438,18 @@ def user_course_list(request):
 
     else:
         return render(request, 'course/user_course_list.html')
+
+###-------------
+
+#@login_required
+#@student_required
+#def course_drop(request):
+#    if request.method == 'POST':
+#        course_ids = request.POST.getlist('course_ids')
+#        student = get_object_or_404(Student, student=request.user)
+#        
+#        TakenCourse.objects.filter(student=student, course__id__in=course_ids).delete()
+#        
+#        messages.success(request, 'Courses dropped successfully!')
+#        
+#    return redirect('course_registration')
