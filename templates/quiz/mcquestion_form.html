@@ -11,11 +11,15 @@
 <div class="container">
 
     <div class="header-title-xl text-center mt-4">Questions form for {{ quiz_obj }}</div>
-    <div class="title-line mb-5"></div>
+    <div class="title-line mb-5">
+  
+
+    </div>
 
     <div class="info-text bg-orange mb-3">{{ quizQuestions }} question added</div>
 
-    <form action="#" method="POST">{% csrf_token %}
+    <form action="#" method="POST">
+        {% csrf_token %}
         {% if form.errors %}<p class="alert alert-danger">Correct the error(s) below.</p>{% endif %}
         <div class="row">
             <div class="col mx-3 py-4 border bg-white">
@@ -63,6 +67,17 @@
                 {% endfor %}
                 </div>
             </div>
+            <!-- Add a field to select question type -->
+  <div class="form-group">
+    <label for="question_type">Select Essay:</label>
+    <select name="question_type" id="question_type">
+        <option value="Essay">Essay</option>
+    </select>
+</div>
+<!-- Essay Question form -->
+<div id="essay_question_form" style="display: none;">
+    {% include 'essay_question_form.html' %}
+</div>
         </div>
         <center>
             <button type="submit" formnovalidate name="another" class="btn btn-lg btn-outline-primary">
