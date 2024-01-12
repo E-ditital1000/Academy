@@ -19,6 +19,6 @@ urlpatterns = [
     path('<slug>/<int:pk>/delete/', quiz_delete, name='quiz_delete'),
     path('mc-question/add/<slug>/<int:quiz_id>/', MCQuestionCreate.as_view(), name='mc_create'),
     path('create_essay_question/', EssayQuestionCreateView.as_view(), name='create_essay_question'),
-
+    path('essay-question/add/<str:slug>/<int:quiz_id>/', EssayQuestionCreateView.as_view(), name='essay_question_create'),
     # path('mc-question/add/<int:pk>/<quiz_pk>/', MCQuestionCreate.as_view(), name='mc_create'),
 ]
