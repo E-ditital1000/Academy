@@ -116,6 +116,37 @@ class MCQuestionCreate(CreateView):
         return super(MCQuestionCreate, self).form_invalid(form)
 
 
+
+from django.shortcuts import render, redirect
+from django.views import View
+from .models import Essay_Question
+from .forms import EssayForm
+from .utils import unique_slug_generator  # Import your utility function if needed
+
+class EssayQuestionCreateView(View):
+    template_name = 'essay_question_create.html'  # Customize with your template
+
+    def get(self, request, *args, **kwargs):
+        form = EssayForm()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = EssayForm(request.POST)
+        if form.is_valid():
+            essay_question = form.save(commit=False)
+            essay_question.content = request.POST.get('content')
+            essay_question.save()
+            # Additional logic if needed
+
+            # Check if the user wants to add another question
+            if "another" in request.POST:
+                return redirect('create_essay_question')  # Redirect to the same view for another question
+            else:
+                return redirect('quiz_index', course_slug=self.kwargs['slug'])
+        return render(request, self.template_name, {'form': form})
+
+
+
 @login_required
 def quiz_list(request, slug):
     quizzes = Quiz.objects.filter(course__slug = slug).order_by('-timestamp')

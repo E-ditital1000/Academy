@@ -17,11 +17,13 @@ class QuestionForm(forms.Form):
         self.fields["answers"] = forms.ChoiceField(choices=choice_list, widget=RadioSelect)
 
 
+
 class EssayForm(forms.Form):
     def __init__(self, question, *args, **kwargs):
         super(EssayForm, self).__init__(*args, **kwargs)
-        self.fields["answers"] = forms.CharField(
-            widget=Textarea(attrs={'style': 'width:100%'}))
+        if "answers" not in self.fields:
+            self.fields["answers"] = forms.CharField(
+                widget=Textarea(attrs={'style': 'width:100%'}))
 
 
 class QuizAddForm(forms.ModelForm):
