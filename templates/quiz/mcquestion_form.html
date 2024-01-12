@@ -8,68 +8,92 @@
     <a href="{{ course.get_absolute_url }}" class="primary1">{{ course }}</a> <i>&rsaquo;</i> 
     <a href="{% url 'quiz_index' course.slug %}" class="primary1">Quiz list</a> <i>&rsaquo;</i> MC Question add for {{ quiz_obj }}</div>
 
-<div class="container">
+    {% extends 'base.html' %}
 
-    <div class="header-title-xl text-center mt-4">Questions form for {{ quiz_obj }}</div>
-    <div class="title-line mb-5"></div>
-
-    <div class="info-text bg-orange mb-3">{{ quizQuestions }} question added</div>
-
-    <form action="#" method="POST">{% csrf_token %}
-        {% if form.errors %}<p class="alert alert-danger">Correct the error(s) below.</p>{% endif %}
-        <div class="row">
-            <div class="col mx-3 py-4 border bg-white">
-                <div class="form-group" hidden>
-                    <label for="title">{{ form.quiz.label }}</label> {{ form.quiz }}
-                    <span class="danger">{{ form.quiz.errors }}</span>
-                    <small class="d-block text-muted">Hold down "Control", or "Command" on a Mac, to select more than one.</small>
-                </div>
-                <div class="form-group">
-                    <label for="content">{{ form.content.label }}</label> {{ form.content }}
-                    <span class="danger">{{ form.content.errors }}</span>
-                    <small class="d-block text-muted">Enter the question text that you want displayed.</small>
-                </div>
-                <div class="form-group">
-                    <label for="figure">{{ form.figure.label }}</label> {{ form.figure }}
-                    <span class="danger">{{ form.figure.errors }}</span>
-                    <small class="d-block text-muted">Add an image for the question if it's necessary.</small>
-                </div>
-                <div class="form-group">
-                    <label for="explanation">{{ form.explanation.label }}</label> {{ form.explanation }}
-                    <span class="danger">{{ form.explanation.errors }}</span>
-                    <small class="d-block text-muted">Explanation to be shown after the question has been answered.</small>
-                </div>
-            </div>
-            <div class="col mx-3 py-4 border bg-white">
-                <div class="form-group">
-                    <label for="choice_order">{{ form.choice_order.label }}</label> {{ form.choice_order }}
-                    <span class="danger">{{ form.choice_order.errors }}</span>
-                    <small class="d-block text-muted">The order in which multichoice choice options are displayed to the user.</small>
-                </div>
-                <div class="border py-3">
-                    <div class="lead text-center">Choices</div>
-                {{ formset.management_form }}
-                {% for fs in formset %}
-                    <label for="username">{{ fs.label }}</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">{{ fs.correct }} <small class="ml-1">Correct</small></span>
-                        </div>
-                        {{ fs.choice }}
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">{{ fs.DELETE }} <small class="ml-1">Delete</small></span>
-                        </div>
+    {% block content %}
+    
+    <div id="input-nav">
+        <!-- Your navigation links -->
+    </div>
+    
+    <div class="container">
+        <div class="header-title-xl text-center mt-4">Questions form for {{ quiz_obj }}</div>
+        <div class="title-line mb-5"></div>
+    
+        <div class="info-text bg-orange mb-3">{{ quizQuestions }} question added</div>
+    
+        <form action="#" method="POST">
+            {% csrf_token %}
+            {% if form.errors %}
+                <p class="alert alert-danger">Correct the error(s) below.</p>
+            {% endif %}
+            <div class="row">
+                <div class="col mx-3 py-4 border bg-white">
+                    <!-- Common question fields -->
+                    <div class="form-group" hidden>
+                        <label for="title">{{ form.quiz.label }}</label> {{ form.quiz }}
+                        <span class="danger">{{ form.quiz.errors }}</span>
+                        <small class="d-block text-muted">Hold down "Control", or "Command" on a Mac, to select more than one.</small>
                     </div>
-                {% endfor %}
+                    <div class="form-group">
+                        <label for="content">{{ form.content.label }}</label> {{ form.content }}
+                        <span class="danger">{{ form.content.errors }}</span>
+                        <small class="d-block text-muted">Enter the question text that you want displayed.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="figure">{{ form.figure.label }}</label> {{ form.figure }}
+                        <span class="danger">{{ form.figure.errors }}</span>
+                        <small class="d-block text-muted">Add an image for the question if it's necessary.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="explanation">{{ form.explanation.label }}</label> {{ form.explanation }}
+                        <span class="danger">{{ form.explanation.errors }}</span>
+                        <small class="d-block text-muted">Explanation to be shown after the question has been answered.</small>
+                    </div>
+                    <!-- End of common question fields -->
+    
+                    <!-- Essay question specific field -->
+                    <div id="essay_question_form" style="display: none;">
+                        {{ essay_form.as_p }}
+                    </div>
+                    <!-- End of essay question specific field -->
+                </div>
+    
+                <div class="col mx-3 py-4 border bg-white">
+                    <!-- Common question fields -->
+                    <div class="form-group">
+                        <label for="choice_order">{{ form.choice_order.label }}</label> {{ form.choice_order }}
+                        <span class="danger">{{ form.choice_order.errors }}</span>
+                        <small class="d-block text-muted">The order in which multichoice choice options are displayed to the user.</small>
+                    </div>
+                    <div class="border py-3">
+                        <div class="lead text-center">Choices</div>
+                        {{ formset.management_form }}
+                        {% for fs in formset %}
+                            <label for="username">{{ fs.label }}</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">{{ fs.correct }} <small class="ml-1">Correct</small></span>
+                                </div>
+                                {{ fs.choice }}
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">{{ fs.DELETE }} <small class="ml-1">Delete</small></span>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <!-- End of common question fields -->
                 </div>
             </div>
-        </div>
-        <center>
-            <button type="submit" formnovalidate name="another" class="btn btn-lg btn-outline-primary">
-                Save and add another
-            </button>
-            <button class="btn btn-lg btn-primary my-4" type="submit">Save</button>
-        </center>
+    
+            <center>
+                <button type="submit" formnovalidate name="another" class="btn btn-lg btn-outline-primary">
+                    Save and add another
+                </button>
+                <button class="btn btn-lg btn-primary my-4" type="submit">Save</button>
+            </center>
+        
+    
 
         <!-- <h3>FormSet example</h3>
         {{ myformset.management_form }}
