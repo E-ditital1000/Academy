@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404, render, redirect
 from django.utils.decorators import method_decorator
-from django.views.generic import DetailView, ListView, TemplateView, FormView, CreateView, FormView, DeleteView, UpdateView
+from django.views.generic import DetailView, ListView, TemplateView, FormView, CreateView, FormView, DeleteView , UpdateView
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.db import transaction
@@ -81,6 +81,8 @@ def quiz_delete(request, slug, pk):
     messages.success(request, 'Quiz successfully deleted.')
     return redirect('quiz_index', course.slug)
 
+
+
 @method_decorator([login_required, lecturer_required], name='dispatch')
 class MCQuestionCreate(CreateView):
     model = MCQuestion
@@ -91,6 +93,12 @@ class MCQuestionCreate(CreateView):
         context['course'] = Course.objects.get(slug=self.kwargs['slug'])
         context['quiz_obj'] = Quiz.objects.get(id=self.kwargs['quiz_id'])
         context['quizQuestions'] = Question.objects.filter(quiz=self.kwargs['quiz_id']).count()
+
+        # Check if the EssayForm should be included
+        should_include_essay_form = True  # Replace this with your actual condition
+        if should_include_essay_form:
+            context['essay_form'] = EssayForm()
+
         if self.request.POST:
             context['form'] = MCQuestionForm(self.request.POST)
             context['formset'] = MCQuestionFormSet(self.request.POST)
@@ -104,6 +112,17 @@ class MCQuestionCreate(CreateView):
         context = self.get_context_data()
         formset = context['formset']
         course = context['course']
+
+        # Check if the EssayForm data is valid
+        essay_form = context.get('essay_form')
+        if essay_form:
+            if essay_form.is_valid():
+                # Process essay_form data here
+                essay_question = essay_form.save(commit=False)
+                essay_question.content = self.request.POST.get('content')  # Adjust this based on your form fields
+                essay_question.save()
+                # Additional logic if needed
+
         with transaction.atomic():
             form.instance.question = self.request.POST.get('content')
             self.object = form.save()
@@ -113,6 +132,7 @@ class MCQuestionCreate(CreateView):
                 if "another" in self.request.POST:
                     return redirect('mc_create', slug=self.kwargs['slug'], quiz_id=self.kwargs['quiz_id'])
                 return redirect('quiz_index', course.slug)
+
         return super(MCQuestionCreate, self).form_invalid(form)
 
 

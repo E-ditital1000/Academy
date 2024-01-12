@@ -19,11 +19,12 @@ class QuestionForm(forms.Form):
 
 
 class EssayForm(forms.Form):
-    def __init__(self, question, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super(EssayForm, self).__init__(*args, **kwargs)
         if "answers" not in self.fields:
             self.fields["answers"] = forms.CharField(
                 widget=Textarea(attrs={'style': 'width:100%'}))
+
 
 
 class QuizAddForm(forms.ModelForm):
