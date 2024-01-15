@@ -71,7 +71,7 @@ def add_score_for(request, id):
         students = TakenCourse.objects.filter(course__allocated_course__lecturer__pk=request.user.id).filter(
             course__id=id).filter(course__semester=current_semester)
         context = {
-            "title": "Submit Score | DjangoSMS",
+            "title": "Submit Score | E-Digital Network",
             "courses": courses,
             "course": course,
             # "myclass": myclass,

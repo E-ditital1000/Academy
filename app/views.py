@@ -15,7 +15,7 @@ from .models import *
 def home_view(request):
     items = NewsAndEvents.objects.all().order_by('-updated_date')
     context = {
-        'title': "News & Events | DjangoSMS",
+        'title': "News & Events | E-Digital Network",
         'items': items,
     }
     return render(request, 'app/index.html', context)
@@ -36,7 +36,7 @@ def post_add(request):
     else:
         form = NewsAndEventsForm()
     return render(request, 'app/post_add.html', {
-        'title': 'Add Post | DjangoSMS',
+        'title': 'Add Post | E-Digital Network',
         'form': form,
     })
 
@@ -58,7 +58,7 @@ def edit_post(request, pk):
     else:
         form = NewsAndEventsForm(instance=instance)
     return render(request, 'app/post_add.html', {
-        'title': 'Edit Post | DjangoSMS',
+        'title': 'Edit Post | E-Digital Network',
         'form': form,
     })
 

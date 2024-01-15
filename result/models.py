@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from networkx import cartesian_product
 
 from accounts.models import Student
 from app.models import Session, Semester
@@ -86,7 +87,7 @@ class TakenCourseManager(models.Manager):
                 cart_obj.user = request.user
                 cart_obj.save()
         else:
-            cart_obj = Cart.objects.new(user=request.user)
+            cart_obj = cartesian_product.objects.new(user=request.user)
             new_obj = True
             request.session['cart_id'] = cart_obj.id
         return cart_obj, new_obj
