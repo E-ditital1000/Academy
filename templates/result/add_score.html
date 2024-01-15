@@ -8,9 +8,15 @@
 
 {% if messages %}
     {% for message in messages %}
-        <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %}">
-            <i class="fas {% if message.tags == 'error' %}fa-exclamation-circle{% else %}fa-check-circle{% endif %}"></i>{{ message }}
-        </div>
+        {% if message.tags == 'error' %}
+            <div class="alert alert-danger">
+                <i class="fas fa-exclamation-circle"></i>{{ message }}
+            </div>
+        {% else %}
+            <div class="alert alert-success">
+                <i class="fas fa-check-circle"></i>{{ message }}
+            </div>
+        {% endif %}
     {% endfor %}
 {% endif %}
 
@@ -24,35 +30,35 @@
             {{ current_semester }} Semester - <i class="result-title">{{ current_session }}</i>
         </p><br>
         <div class="container">
-            {% if courses %}
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Select Course
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        {% for course in courses %}
-                            <a class="dropdown-item" href="{% url 'add_score_for' course.id %}" title="{{ course.code }}">{{ course.title }}</a>
-                        {% endfor %}
-                    </div>
-                </div>
-            {% else %}
-                <div class="content-center"><i class="far fa-frown fa-2x"></i> No course available.</div>
-            {% endif %}
+            <div class="content-center"><i class="far fa-frown fa-2x"></i> No course selected.</div>
 
-            <!-- Commented-out code
-            <div class="drop-down">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Your Course Here
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {% for course in courses %}
+                        <a class="dropdown-item" href="{% url 'add_score_for' course.id %}" title="{{ course.code }}">{{ course.title }}</a>
+                    {% empty %}
+                        <p class="dropdown-item"><i class="far fa-frown fa-1x"></i> No course.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- <div class="drop-down">
                 <a class="add-button" href="#">Select Course Here <i class="fas fa-angle-down"></i></a>
 
                 <div class="content">
                     <div class="content-a">
                         {% for course in courses %}
                             <a href="{% url 'add_score_for' course.id %}" title="{{ course.title }}">{{ course.code }}</a>
+                        {% empty %}
+                            <p><i class="far fa-frown"></i>No course.</p>
                         {% endfor %}
                     </div>
                 </div>
             </div> -->
-            
-            <p>To manage scores, first select your course using the dropdown above.</p>
+            <p>To manage score first select your course in the buttom above.</p>
         </div>
     </div>
 </div>
