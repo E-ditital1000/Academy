@@ -391,7 +391,7 @@ def course_registration_form(request):
     normal.fontName = "Helvetica"
     normal.fontSize = 12
     normal.leading = 18
-    title = "<b>E-DigitalNetwork UNIVERSITY OF TECHNOLOGY, ELVIS </b>" 
+    title = "<b>African Methodist Episcopal University</b>" 
     title = Paragraph(title.upper(), normal)
     Story.append(title)
     style = getSampleStyleSheet()
@@ -401,7 +401,7 @@ def course_registration_form(request):
     school.fontName = "Helvetica"
     school.fontSize = 10
     school.leading = 18
-    school_title = "<b>SCHOOL OF ELECTRICAL ENGINEERING & COMPUTING</b>"
+    school_title = "<b>SCHOOL OF SCIENCE AND TECHNOLOGY</b>"
     school_title = Paragraph(school_title.upper(), school)
     Story.append(school_title)
 
@@ -412,7 +412,7 @@ def course_registration_form(request):
     department.fontName = "Helvetica"
     department.fontSize = 9
     department.leading = 18
-    department_title = "<b>DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING</b>"
+    department_title = "<b>DEPARTMENT OF PHYSICS</b>"
     department_title = Paragraph(department_title, department)
     Story.append(department_title)
     Story.append(Spacer(1,.3*inch))
