@@ -49,66 +49,38 @@ def add_score(request):
     return render(request, 'result/add_score.html', context)
 
 
-#@login_required
-#@lecturer_required
-#def add_score_for(request, id):
-#    """
-#    Shows a page where a lecturer will add score for students that are taking courses allocated to him
-#    in a specific semester and session 
-#    """
-#    current_session = Session.objects.get(is_current_session=True)
-#    current_semester = get_object_or_404(Semester, is_current_semester=True, session=current_session)
-#    if request.method == 'GET':
-#        courses = Course.objects.filter(allocated_course__lecturer__pk=request.user.id).filter(
-#            semester=current_semester)
-#        course = Course.objects.get(pk=id)
-#        # myclass = Class.objects.get(lecturer__pk=request.user.id)
-#        # myclass = get_object_or_404(Class, lecturer__pk=request.user.id)
-#
-#        # students = TakenCourse.objects.filter(course__allocated_course__lecturer__pk=request.user.id).filter(
-#        #     course__id=id).filter(student__allocated_student__lecturer__pk=request.user.id).filter(
-#        #         course__semester=current_semester)
-#        students = TakenCourse.objects.filter(course__allocated_course__lecturer__pk=request.user.id).filter(
-#            course__id=id).filter(course__semester=current_semester)
-#        context = {
-#            "title": "Submit Score | E-Digital Network",
-#            "courses": courses,
-#            "course": course,
-#            # "myclass": myclass,
-#            "students": students,
-#            "current_session": current_session,
-#            "current_semester": current_semester,
-#        }
-#        return render(request, 'result/add_score_for.html', context)
-    
 @login_required
 @lecturer_required
 def add_score_for(request, id):
+    """
+    Shows a page where a lecturer will add score for students that are taking courses allocated to him
+    in a specific semester and session 
+    """
     current_session = Session.objects.get(is_current_session=True)
     current_semester = get_object_or_404(Semester, is_current_semester=True, session=current_session)
-
     if request.method == 'GET':
         courses = Course.objects.filter(allocated_course__lecturer__pk=request.user.id).filter(
             semester=current_semester)
-        course = get_object_or_404(Course, pk=id)
+        course = Course.objects.get(pk=id)
+        # myclass = Class.objects.get(lecturer__pk=request.user.id)
+        # myclass = get_object_or_404(Class, lecturer__pk=request.user.id)
 
-        # Retrieve students associated with the course and current semester
-        students = TakenCourse.objects.filter(course=course).filter(course__semester=current_semester)
-
-        # Debugging output
-        print("Selected Course:", course)
-        print("Associated Students:", students)
-
+        # students = TakenCourse.objects.filter(course__allocated_course__lecturer__pk=request.user.id).filter(
+        #     course__id=id).filter(student__allocated_student__lecturer__pk=request.user.id).filter(
+        #         course__semester=current_semester)
+        students = TakenCourse.objects.filter(course__allocated_course__lecturer__pk=request.user.id).filter(
+            course__id=id).filter(course__semester=current_semester)
         context = {
             "title": "Submit Score | E-Digital Network",
             "courses": courses,
             "course": course,
+            # "myclass": myclass,
             "students": students,
             "current_session": current_session,
             "current_semester": current_semester,
         }
         return render(request, 'result/add_score_for.html', context)
-
+    
     if request.method == 'POST':
         ids = ()
         data = request.POST.copy()
