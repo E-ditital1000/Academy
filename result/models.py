@@ -87,7 +87,7 @@ class TakenCourseManager(models.Manager):
                 cart_obj.user = request.user
                 cart_obj.save()
         else:
-            cart_obj = self.new(user=request.user)  # Corrected reference to self
+            cart_obj = cartesian_product.objects.new(user=request.user)
             new_obj = True
             request.session['cart_id'] = cart_obj.id
         return cart_obj, new_obj
@@ -98,7 +98,6 @@ class TakenCourseManager(models.Manager):
             if user.is_authenticated():
                 user_obj = user
         return self.model.objects.create(user=user_obj)
-
 
 
 class TakenCourse(models.Model):
