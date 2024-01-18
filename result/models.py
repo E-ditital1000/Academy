@@ -1,6 +1,5 @@
 from django.db import models
 from django.urls import reverse
-from networkx import cartesian_product
 
 from accounts.models import Student
 from app.models import Session, Semester
@@ -16,18 +15,14 @@ YEARS = (
     )
 
 # LEVEL_COURSE = "Level course"
-CERTIFICATE = "Certificate"
 BACHLOAR_DEGREE = "Bachloar"
 MASTER_DEGREE = "Master"
 
-
 LEVEL = (
     # (LEVEL_COURSE, "Level course"),
-    (CERTIFICATE, "Certificate"),
     (BACHLOAR_DEGREE, "Bachloar Degree"),
     (MASTER_DEGREE, "Master Degree"),
-)  
-
+)
 
 FIRST = "First"
 SECOND = "Second"
@@ -87,7 +82,7 @@ class TakenCourseManager(models.Manager):
                 cart_obj.user = request.user
                 cart_obj.save()
         else:
-            cart_obj = cartesian_product.objects.new(user=request.user)
+            cart_obj = Cart.objects.new(user=request.user)
             new_obj = True
             request.session['cart_id'] = cart_obj.id
         return cart_obj, new_obj
