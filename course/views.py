@@ -208,7 +208,7 @@ class CourseAllocationFormView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Assign Course | DjangoSMS"
+        context['title'] = "Assign Course | E-Digital Network"
         return context
 
 
@@ -216,7 +216,7 @@ class CourseAllocationFormView(CreateView):
 def course_allocation_view(request):
     allocated_courses = CourseAllocation.objects.all()
     return render(request, 'course/course_allocation_view.html', {
-        'title': "Course Allocations | DjangoSMS",
+        'title': "Course Allocations |E-Digital Network ",
         "allocated_courses": allocated_courses
     })
 
@@ -235,7 +235,7 @@ def edit_allocated_course(request, pk):
         form = EditCourseAllocationForm(instance=allocated)
 
     return render(request, 'course/course_allocation_form.html', {
-        'title': "Edit Course Allocated | DjangoSMS",
+        'title': "Edit Course Allocated | E-Digital Network",
         'form': form, 'allocated': pk
     })
 
@@ -310,7 +310,7 @@ def handle_video_upload(request, slug):
     else:
         form = UploadFormVideo()
     return render(request, 'upload/upload_video_form.html', {
-        'title': "Video Upload | DjangoSMS",
+        'title': "Video Upload | E-Digital Network",
         'form': form, 'course': course
     })
 
@@ -441,15 +441,15 @@ def user_course_list(request):
 
 ###-------------
 
-#@login_required
-#@student_required
-#def course_drop(request):
-#    if request.method == 'POST':
-#        course_ids = request.POST.getlist('course_ids')
-#        student = get_object_or_404(Student, student=request.user)
-#        
-#        TakenCourse.objects.filter(student=student, course__id__in=course_ids).delete()
-#        
-#        messages.success(request, 'Courses dropped successfully!')
-#        
-#    return redirect('course_registration')
+@login_required
+@student_required
+def course_drop(request):
+    if request.method == 'POST':
+        course_ids = request.POST.getlist('course_ids')
+        student = get_object_or_404(Student, student=request.user)
+        
+        TakenCourse.objects.filter(student=student, course__id__in=course_ids).delete()
+        
+        messages.success(request, 'Courses dropped successfully!')
+        
+    return redirect('course_registration')
