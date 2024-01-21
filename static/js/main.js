@@ -82,3 +82,27 @@ function showCourses(btn) {
   }
   collapsed = !collapsed;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

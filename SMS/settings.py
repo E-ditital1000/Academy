@@ -148,9 +148,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': ('railway'),
         'USER': ('postgres'),
-        'PASSWORD':('E*eE-352dF-ea5c2AddgeBFbA-f44424'),
+        'PASSWORD':('G41bCd3E*AFag4c1-*BaCAC*Ba154G2G'),
         'HOST': ('roundhouse.proxy.rlwy.net'),
-        'PORT': ('42848'),
+        'PORT': ('58466'),
     }
 }
 
@@ -206,11 +206,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # E-mail configuration
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com' # Here i'm using gmail as the email host, but you can change it
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = ('')
-EMAIL_HOST_PASSWORD = ('')
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = 'joannabedella@gmail.com'  # Your Gmail address
+EMAIL_HOST_PASSWORD = 'ncfesqwtekvpeghr'  # Your Gmail password or App Password
 
 # crispy config
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

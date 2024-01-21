@@ -1,7 +1,7 @@
 from django.urls import path
 
 from .views import (
-    home_view, post_add, edit_post, delete_post, 
+    index_view, home_view, post_add, edit_post, delete_post, 
     session_list_view, session_add_view, session_update_view, session_delete_view, 
     semester_list_view, semester_add_view, semester_update_view, semester_delete_view,
     dashboard_view
@@ -10,7 +10,8 @@ from .views import (
 
 urlpatterns = [
     # Accounts url
-    path('', home_view, name='home'),
+    path('', index_view, name='index'),
+    path('home/', home_view, name='home'),
     path('add_item/', post_add, name='add_item'),
     path('item/<int:pk>/edit/', edit_post, name='edit_post'),
     path('item/<int:pk>/delete/', delete_post, name='delete_post'),

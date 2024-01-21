@@ -21,6 +21,9 @@ def home_view(request):
     return render(request, 'app/index.html', context)
 
 
+def index_view(request):
+    return render(request, 'app/edn.html')
+
 @login_required
 def post_add(request):
     if request.method == 'POST':
