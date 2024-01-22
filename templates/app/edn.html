@@ -1,327 +1,680 @@
 {% load static %}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Digital Network Index</title>
+  <title>E-Digital Network - Index</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+<link rel="icon" href="{% static 'img/favicon.png' %}">
+<link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
+
+
 
   <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  
 
-  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <!-- =======================================================
+  * Template Name: eBusiness
+  * Updated: Jan 09 2024 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/ebusiness-bootstrap-corporate-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
-
 
 <body>
 
-  <!-- ======= Top Bar ======= -->
-  <section id="topbar" class="d-flex align-items-center">
-    <div class="container d-flex justify-content-center justify-content-md-between">
-      <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="edigitalnetwork842@gmail.com">edigitalnetwork842@gmail.com</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+231 888880929</span></i>
-      </div>
 
-      <div class="cta d-none d-md-flex align-items-center">
-        <a href="{% url 'home' %}" class="scrollto">Start Learning</a>
-      </div>
-    </div>
-  </section>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <div class="logo">
-        <h1><a href="index.html">E-Digital Netwrok</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+  <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex justify-content-between">
+  
+          <div class="logo">
+              <h1><a href="{% url 'index' %}"><span>E-Digital</span> Network</a></h1>
+              <!-- Uncomment below if you prefer to use an image logo -->
+              <!-- <a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid"></a>-->
+          </div>
+  
+          <nav id="navbar" class="navbar">
+              <ul>
+                  <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                  <li><a class="nav-link scrollto" href="#about">About</a></li>
+                  <li><a class="nav-link scrollto" href="#services">Services</a></li>
+                  <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
+                  <li><a class="nav-link scrollto" href="#team">Team</a></li>
+                  <li><a href="{% url 'blog' %}">Blog</a></li>
+                  <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+                      <ul>
+                          <li><a href="#">Drop Down 1</a></li>
+                          <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
+                                      class="bi bi-chevron-right"></i></a>
+                              <ul>
+                                  <li><a href="#">Deep Drop Down 1</a></li>
+                                  <li><a href="#">Deep Drop Down 2</a></li>
+                                  <li><a href="#">Deep Drop Down 3</a></li>
+                                  <li><a href="#">Deep Drop Down 4</a></li>
+                                  <li><a href="#">Deep Drop Down 5</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="#">Drop Down 2</a></li>
+                          <li><a href="#">Drop Down 3</a></li>
+                          <li><a href="#">Drop Down 4</a></li>
+                      </ul>
+                  </li>
+                  <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+              </ul>
+              <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+  
       </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
   </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="container" data-aos="fade-in">
-      <h1>Welcome to E-Digital Network</h1>
-      <h2>We are team of talented I.T. professionals</h2>
-      <div class="d-flex align-items-center">
-        <i class="bx bxs-right-arrow-alt get-started-icon"></i>
-        <a href="#about" class="btn-get-started scrollto">Start Learning</a>
-      </div>
-    </div>
-  </section><!-- End Hero -->
+  
+  <!-- ======= hero Section ======= -->
+  <section id="hero">
+      <div class="hero-container">
+          <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+  
+              <ol id="hero-carousel-indicators" class="carousel-indicators"></ol>
+  
+              <div class="carousel-inner" role="listbox">
+  
+                  <div class="carousel-item active" style="background-image: url({% static 'img/hero-carousel/1.jpg' %})">
+                      <div class="carousel-container">
+                          <div class="container">
+                              <h2 class="animate__animated animate__fadeInDown">The Best Business Information </h2>
+                              <p class="animate__animated animate__fadeInUp">We're In The Business Of Helping You Start
+                                  Your Business</p>
+                              <a href="#about"
+                                  class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                          </div>
+                      </div>
+                  </div>
+  
+                  <div class="carousel-item" style="background-image: url({% static 'img/hero-carousel/2.jpg' %})">
+                      <div class="carousel-container">
+                          <div class="container">
+                              <h2 class="animate__animated animate__fadeInDown">At vero eos et accusamus</h2>
+                              <p class="animate__animated animate__fadeInUp">Helping Business Security & Peace of Mind
+                                  for Your Family</p>
+                              <a href="#about"
+                                  class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                          </div>
+                      </div>
+                  </div>
+  
+                  <div class="carousel-item" style="background-image: url({% static 'img/hero-carousel/3.jpg' %})">
+                      <div class="carousel-container">
+                          <div class="container">
+                              <h2 class="animate__animated animate__fadeInDown">Temporibus autem quibusdam</h2>
+                              <p class="animate__animated animate__fadeInUp">Beatae vitae dicta sunt explicabo. Nemo enim
+                                  ipsam voluptatem</p>
+                              <a href="#about"
+                                  class="btn-get-started scrollto animate_
+  
 
   <main id="main">
-<!-- ======= Why Us Section ======= -->
-<section id="why-us" class="why-us">
-  <div class="container">
 
-    <div class="row">
-      <div class="col-xl-4 col-lg-5" data-aos="fade-up">
-        <div class="content">
-          <h3>Why Opt for E-Digital Network for Your Company Website?</h3>
-          <p>
-            Elevate your online presence with E-Digital Network—a strategic partner committed to delivering unparalleled digital solutions. Our approach blends innovation, efficiency, and a keen understanding of your business objectives to create a compelling online platform.
-            Partner with us for a transformative digital journey that aligns seamlessly with your company's vision and goals.
-          </p>
-          <div class="text-center">
-            <a href="#" class="more-btn">Explore More <i class="bx bx-chevron-right"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-8 col-lg-7 d-flex">
-        <div class="icon-boxes d-flex flex-column justify-content-center">
-          <div class="row">
-            <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-              <div class="icon-box mt-4 mt-xl-0">
-                <i class="bx bx-receipt"></i>
-                <h4>Strategic Solutions</h4>
-                <p>Experience tailor-made digital solutions designed to align with your business goals and enhance operational efficiency.</p>
-              </div>
-            </div>
-            <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-              <div class="icon-box mt-4 mt-xl-0">
-                <i class="bx bx-cube-alt"></i>
-                <h4>Efficiency Unleashed</h4>
-                <p>Optimize your workflow with our solutions, ensuring streamlined processes that maximize productivity and effectiveness.</p>
-              </div>
-            </div>
-            <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-              <div class="icon-box mt-4 mt-xl-0">
-                <i class="bx bx-images"></i>
-                <h4>Innovative Excellence</h4>
-                <p>Immerse your brand in innovation with cutting-edge designs and user experiences that captivate and resonate with your audience.</p>
-              </div>
+    <!-- ======= About Section ======= -->
+    <div id="about" class="about-area area-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>About eBusiness</h2>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-  </div>
-</section><!-- End Why Us Section -->
-
-   <!-- ======= About Section ======= -->
-<section id="about" class="about section-bg">
-  <div class="container">
-
-    <div class="row">
-      <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative" data-aos="fade-right">
-        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
-      </div>
-
-      <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
-        <h4 data-aos="fade-up">About Us</h4>
-        <h3 data-aos="fade-up">Elevating Business with Innovative Digital Solutions</h3>
-        <p data-aos="fade-up">At E-Digital Network, we are dedicated to providing cutting-edge digital solutions that resonate with your business goals. Our commitment lies in creating a compelling online presence that aligns seamlessly with your brand identity, ensuring a transformative digital experience for your audience.</p>
-
-        <div class="icon-box" data-aos="fade-up">
-          <div class="icon"><i class="bx bx-fingerprint"></i></div>
-          <h4 class="title"><a href="#">Tailor-Made Solutions</a></h4>
-          <p class="description">Experience customized digital solutions designed to enhance operational efficiency and align with your unique business objectives.</p>
+        <div class="row">
+          <!-- single-well start-->
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="well-left">
+              <div class="single-well">
+                <a href="#">
+                  <img src="assets/img/about/1.jpg" alt="">
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- single-well end-->
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="well-middle">
+              <div class="single-well">
+                <a href="#">
+                  <h4 class="sec-head">project Maintenance</h4>
+                </a>
+                <p>
+                  Redug Lagre dolor sit amet, consectetur adipisicing elit. Itaque quas officiis iure aspernatur sit adipisci quaerat unde at nequeRedug Lagre dolor sit amet, consectetur adipisicing elit. Itaque quas officiis iure
+                </p>
+                <ul>
+                  <li>
+                    <i class="bi bi-check"></i> Interior design Package
+                  </li>
+                  <li>
+                    <i class="bi bi-check"></i> Building House
+                  </li>
+                  <li>
+                    <i class="bi bi-check"></i> Reparing of Residentail Roof
+                  </li>
+                  <li>
+                    <i class="bi bi-check"></i> Renovaion of Commercial Office
+                  </li>
+                  <li>
+                    <i class="bi bi-check"></i> Make Quality Products
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- End col-->
         </div>
-
-        <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-          <div class="icon"><i class="bx bx-gift"></i></div>
-          <h4 class="title"><a href="#">Innovation Unleashed</a></h4>
-          <p class="description">Immerse your brand in innovation with cutting-edge designs and user experiences that captivate and resonate with your audience.</p>
-        </div>
-
-        <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-          <div class="icon"><i class="bx bx-atom"></i></div>
-          <h4 class="title"><a href="#">Strategic Excellence</a></h4>
-          <p class="description">Explore strategic excellence in digital solutions, ensuring your business stands out in the competitive digital landscape.</p>
-        </div>
-
       </div>
-    </div>
-
-  </div>
-</section><!-- End About Section -->
-
-<!-- ======= Clients Section ======= -->
-<section id="clients" class="clients">
-  <div class="container" data-aos="fade-up">
-    <div class="clients-slider swiper">
-      <div class="swiper-wrapper align-items-center">
-        <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-1.png' %}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-2.png' %}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-3.png' %}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-4.png' %}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-5.png' %}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-6.png' %}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-7.png' %}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{% static 'assets/img/clients/client-8.png' %}" class="img-fluid" alt=""></div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-    
-
-  </div>
-</section><!-- End Clients Section -->
+    </div><!-- End About Section -->
 
     <!-- ======= Services Section ======= -->
-<section id="services" class="services section-bg">
-  <div class="container">
+    <div id="services" class="services-area area-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline services-head text-center">
+              <h2>Our Services</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row text-center">
+          <!-- Start Left services -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-briefcase"></i>
+                  </a>
+                  <h4>Expert Coder</h4>
+                  <p>
+                    will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-card-checklist"></i>
+                  </a>
+                  <h4>Creative Designer</h4>
+                  <p>
+                    will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <!-- end col-md-4 -->
+            <div class=" about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-bar-chart"></i>
+                  </a>
+                  <h4>Wordpress Developer</h4>
+                  <p>
+                    will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <!-- end col-md-4 -->
+            <div class=" about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-binoculars"></i>
+                  </a>
+                  <h4>Social Marketer </h4>
+                  <p>
+                    will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <!-- End Left services -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <!-- end col-md-4 -->
+            <div class=" about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-brightness-high"></i>
+                  </a>
+                  <h4>Seo Expart</h4>
+                  <p>
+                    will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <!-- End Left services -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <!-- end col-md-4 -->
+            <div class=" about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-calendar4-week"></i>
+                  </a>
+                  <h4>24/7 Support</h4>
+                  <p>
+                    will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Services Section -->
 
-    <div class="section-title" data-aos="fade-up">
-      <h2>Our Services</h2>
-      <p>Explore our comprehensive range of services crafted to empower your business across diverse domains.</p>
-    </div>
+    <!-- ======= Team Section ======= -->
+    <div id="team" class="our-team-area area-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>Our special Team</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="single-team-member">
+              <div class="team-img">
+                <a href="#">
+                  <img src="assets/img/team/1.jpg" alt="">
+                </a>
+                <div class="team-social-icon text-center">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="team-content text-center">
+                <h4>Jhon Mickel</h4>
+                <p>Seo</p>
+              </div>
+            </div>
+          </div>
+          <!-- End column -->
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="single-team-member">
+              <div class="team-img">
+                <a href="#">
+                  <img src="assets/img/team/2.jpg" alt="">
+                </a>
+                <div class="team-social-icon text-center">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="team-content text-center">
+                <h4>Andrew Arnold</h4>
+                <p>Web Developer</p>
+              </div>
+            </div>
+          </div>
+          <!-- End column -->
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="single-team-member">
+              <div class="team-img">
+                <a href="#">
+                  <img src="assets/img/team/3.jpg" alt="">
+                </a>
+                <div class="team-social-icon text-center">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="team-content text-center">
+                <h4>Lellien Linda</h4>
+                <p>Web Design</p>
+              </div>
+            </div>
+          </div>
+          <!-- End column -->
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="single-team-member">
+              <div class="team-img">
+                <a href="#">
+                  <img src="assets/img/team/4.jpg" alt="">
+                </a>
+                <div class="team-social-icon text-center">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="team-content text-center">
+                <h4>Jhon Powel</h4>
+                <p>Seo Expert</p>
+              </div>
+            </div>
+          </div>
+          <!-- End column -->
+        </div>
+      </div>
+    </div><!-- End Team Section -->
 
-    <div class="row">
-      <div class="col-lg-4 col-md-6" data-aos="fade-up">
-        <div class="icon-box">
-          <div class="icon"><i class="bi bi-briefcase"></i></div>
-          <h4 class="title"><a href="#">I.T Consultancy</a></h4>
-          <p class="description">Navigate the complex world of Information Technology with our expert consultancy services, ensuring strategic alignment with your business goals.</p>
+    <!-- ======= Rviews Section ======= -->
+    <div class="reviews-area">
+      <div class="row g-0">
+        <div class="col-lg-6">
+          <img src="assets/img/about/2.jpg" alt="" class="img-fluid">
+        </div>
+        <div class="col-lg-6 work-right-text d-flex align-items-center">
+          <div class="px-5 py-5 py-lg-0">
+            <h2>working with us</h2>
+            <h5>Web Design, Ready Home, Construction and Co-operate Outstanding Buildings.</h5>
+            <a href="#contact" class="ready-btn scrollto">Contact us</a>
+          </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="icon-box">
-          <div class="icon"><i class="bi bi-card-checklist"></i></div>
-          <h4 class="title"><a href="#">Web Development</a></h4>
-          <p class="description">Embark on a digital journey with our dynamic web development solutions, creating user-centric and visually stunning online platforms.</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="icon-box">
-          <div class="icon"><i class="bi bi-bar-chart"></i></div>
-          <h4 class="title"><a href="#">E-Learning</a></h4>
-          <p class="description">Transform education through innovative e-learning solutions, providing engaging and accessible learning experiences for students and professionals alike.</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="icon-box">
-          <div class="icon"><i class="bi bi-binoculars"></i></div>
-          <h4 class="title"><a href="#">Job-Boarding</a></h4>
-          <p class="description">Connect talent with opportunities using our Job-Boarding services, facilitating seamless recruitment processes for both employers and job seekers.</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-        <div class="icon-box">
-          <div class="icon"><i class="bi bi-tools"></i></div>
-          <h4 class="title"><a href="#">Hardware Repair</a></h4>
-          <p class="description">Restore and optimize your hardware performance with our skilled professionals, providing reliable hardware repair solutions.</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-        <div class="icon-box">
-          <div class="icon"><i class="bi bi-tools"></i></div>
-          <h4 class="title"><a href="#">Digital Marketing</a></h4>
-          <p class="description">Boost your online presence and reach your target audience with our Digital Marketing Service. Our experts provide effective strategies tailored to your business needs.</p>
-        </div>
-      </div>
-      
-    </div>
+    </div><!-- End Rviews Section -->
 
-  </div>
-</section><!-- End Services Section -->
+    <!-- ======= Portfolio Section ======= -->
+    <div id="portfolio" class="portfolio-area area-padding fix">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>Our Portfolio</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row wesome-project-1 fix">
+          <!-- Start Portfolio -page -->
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div>
 
+        <div class="row awesome-project-content portfolio-container">
 
-    <!-- ======= Values Section ======= -->
-    <section id="values" class="values">
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app portfolio-item">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="#"><img src="assets/img/portfolio/1.jpg" alt="" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="assets/img/portfolio/1.jpg">
+                      <h4>Business City</h4>
+                      <span>Web Development</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="#"><img src="assets/img/portfolio/2.jpg" alt="" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="assets/img/portfolio/2.jpg">
+                      <h4>Blue Sea</h4>
+                      <span>Photosho</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-card">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="#"><img src="assets/img/portfolio/3.jpg" alt="" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="assets/img/portfolio/3.jpg">
+                      <h4>Beautiful Nature</h4>
+                      <span>Web Design</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="#"><img src="assets/img/portfolio/4.jpg" alt="" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="assets/img/portfolio/4.jpg">
+                      <h4>Creative Team</h4>
+                      <span>Web design</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="#"><img src="assets/img/portfolio/5.jpg" alt="" /></a>
+                <div class="add-actions text-center text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="assets/img/portfolio/5.jpg">
+                      <h4>Beautiful Flower</h4>
+                      <span>Web Development</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="#"><img src="assets/img/portfolio/6.jpg" alt="" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="assets/img/portfolio/6.jpg">
+                      <h4>Night Hill</h4>
+                      <span>Photoshop</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+        </div>
+      </div>
+    </div><!-- End Portfolio Section -->
+
+    <!-- ======= Pricing Section ======= -->
+    <div id="pricing" class="pricing-area area-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>Pricing Table</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="pri_table_list">
+              <h3>basic <br /> <span>$80 / month</span></h3>
+              <ol>
+                <li class="check"><i class="bi bi-check"></i><span>Online system</span></li>
+                <li class="check"><i class="bi bi-x"></i><span>Full access</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Free apps</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Multiple slider</span></li>
+                <li class="cross"><i class="bi bi-x"></i><span>Free domin</span></li>
+                <li class="cross"><i class="bi bi-x"></i><span>Support unlimited</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Payment online</span></li>
+                <li class="check"><i class="bi bi-x"></i><span>Cash back</span></li>
+              </ol>
+              <button>sign up now</button>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="pri_table_list active">
+              <span class="saleon">top sale</span>
+              <h3>standard <br /> <span>$110 / month</span></h3>
+              <ol>
+                <li class="check"><i class="bi bi-check"></i><span>Online system</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Full access</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Free apps</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Multiple slider</span></li>
+                <li class="cross"><i class="bi bi-x"></i><span>Free domin</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Support unlimited</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Payment online</span></li>
+                <li class="cross"><i class="bi bi-x"></i><span>Cash back</span></li>
+              </ol>
+              <button>sign up now</button>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="pri_table_list">
+              <h3>premium <br /> <span>$150 / month</span></h3>
+              <ol>
+                <li class="check"><i class="bi bi-check"></i><span>Online system</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Full access</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Free apps</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Multiple slider</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Free domin</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Support unlimited</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Payment online</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Cash back</span></li>
+              </ol>
+              <button>sign up now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Pricing Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <div id="testimonials" class="testimonials">
       <div class="container">
 
-        <div class="row">
-          <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
-            <div class="card" style="background-image: url({% static 'assets/img/values-1.jpg' %});">
-          
-              <div class="card-body">
-                <h5 class="card-title"><a href="">Our Mission</a></h5>
-                <p class="card-text">At E-Digital Network, our mission is to empower individuals and businesses by leveraging the transformative power of technology.</p>
-                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="100">
-            <div class="card" style="background-image: url({% static 'assets/img/values-2.jpg' %});">
-              <div class="card-body">
-                <h5 class="card-title"><a href="">Our Plan</a></h5>
-                <p class="card-text">Our strategic plan involves a comprehensive approach to digital services, encompassing graphic design, data recovery, online presence building, and computer skills training.</p>
-                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="card" style="background-image: url({% static 'assets/img/values-3.jpg' %});">
-              <div class="card-body">
-                <h5 class="card-title"><a href="">Our Vision</a></h5>
-                <p class="card-text">Our vision is to be a pioneering force in the digital realm, setting the standard for excellence and innovation. </p>
-                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card" style="background-image: url({% static 'assets/img/values-4.jpg' %});">
-              <div class="card-body">
-                <h5 class="card-title"><a href="">Core Values</a></h5>
-                <p class="card-text">Quality, Creativity, Reliability, Adaptability, Empowerment, Community Impact
-                  </p>
-                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Values Section -->
-
-    <!-- ======= Testimonials Section ======= 
-    <section id="testimonials" class="testimonials">
-      <div class="container position-relative" data-aos="fade-up">
-
-        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonials-slider swiper">
           <div class="swiper-wrapper">
 
             <div class="swiper-slide">
@@ -335,7 +688,7 @@
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
-            </div>End testimonial item 
+            </div><!-- End testimonial item -->
 
             <div class="swiper-slide">
               <div class="testimonial-item">
@@ -348,7 +701,7 @@
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
-            </div> End testimonial item 
+            </div><!-- End testimonial item -->
 
             <div class="swiper-slide">
               <div class="testimonial-item">
@@ -361,7 +714,7 @@
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
-            </div><!-- End testimonial item 
+            </div><!-- End testimonial item -->
 
             <div class="swiper-slide">
               <div class="testimonial-item">
@@ -374,7 +727,7 @@
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
-            </div><!-- End testimonial item
+            </div><!-- End testimonial item -->
 
             <div class="swiper-slide">
               <div class="testimonial-item">
@@ -387,494 +740,332 @@
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
-            </div><!-- End testimonial item -
+            </div><!-- End testimonial item -->
 
           </div>
           <div class="swiper-pagination"></div>
         </div>
 
       </div>
-    </section><!-- End Testimonials Section -->
+    </div><!-- End Testimonials Section -->
 
-    <!-- ======= Portfolio Section ======= 
-    <section id="portfolio" class="portfolio">
-      <div class="container">
-
-        <div class="section-title">
-          <h2 data-aos="fade-up">Portfolio</h2>
-          <p data-aos="fade-up">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+    <!-- ======= Blog Section ======= -->
+    <div id="blog" class="blog-area">
+      <div class="blog-inner area-padding">
+        <div class="blog-overly"></div>
+        <div class="container ">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h2>Latest News</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Start Left Blog -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="single-blog">
+                <div class="single-blog-img">
+                  <a href="blog.html">
+                    <img src="assets/img/blog/1.jpg" alt="">
+                  </a>
+                </div>
+                <div class="blog-meta">
+                  <span class="comments-type">
+                    <i class="fa fa-comment-o"></i>
+                    <a href="#">13 comments</a>
+                  </span>
+                  <span class="date-type">
+                    <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+                  </span>
+                </div>
+                <div class="blog-text">
+                  <h4>
+                    <a href="blog.html">Assumenda repud eum veniam</a>
+                  </h4>
+                  <p>
+                    Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                  </p>
+                </div>
+                <span>
+                  <a href="blog.html" class="ready-btn">Read more</a>
+                </span>
+              </div>
+              <!-- Start single blog -->
+            </div>
+            <!-- End Left Blog-->
+            <!-- Start Left Blog -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="single-blog">
+                <div class="single-blog-img">
+                  <a href="blog.html">
+                    <img src="assets/img/blog/2.jpg" alt="">
+                  </a>
+                </div>
+                <div class="blog-meta">
+                  <span class="comments-type">
+                    <i class="fa fa-comment-o"></i>
+                    <a href="#">130 comments</a>
+                  </span>
+                  <span class="date-type">
+                    <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+                  </span>
+                </div>
+                <div class="blog-text">
+                  <h4>
+                    <a href="blog.html">Explicabo magnam quibusdam.</a>
+                  </h4>
+                  <p>
+                    Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                  </p>
+                </div>
+                <span>
+                  <a href="blog.html" class="ready-btn">Read more</a>
+                </span>
+              </div>
+              <!-- Start single blog -->
+            </div>
+            <!-- End Left Blog-->
+            <!-- Start Right Blog-->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="single-blog">
+                <div class="single-blog-img">
+                  <a href="blog.html">
+                    <img src="assets/img/blog/3.jpg" alt="">
+                  </a>
+                </div>
+                <div class="blog-meta">
+                  <span class="comments-type">
+                    <i class="fa fa-comment-o"></i>
+                    <a href="#">10 comments</a>
+                  </span>
+                  <span class="date-type">
+                    <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+                  </span>
+                </div>
+                <div class="blog-text">
+                  <h4>
+                    <a href="blog.html">Lorem ipsum dolor sit amet</a>
+                  </h4>
+                  <p>
+                    Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                  </p>
+                </div>
+                <span>
+                  <a href="blog.html" class="ready-btn">Read more</a>
+                </span>
+              </div>
+            </div>
+            <!-- End Right Blog-->
+          </div>
         </div>
-
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 1</h4>
-              <p>App</p>
-              <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 2</h4>
-              <p>App</p>
-              <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 2</h4>
-              <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 2</h4>
-              <p>Web</p>
-              <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 3</h4>
-              <p>App</p>
-              <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 1</h4>
-              <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 3</h4>
-              <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-        </div>
-
       </div>
-    </section> End Portfolio Section -->
+    </div><!-- End Blog Section -->
 
-    <!-- ======= Team Section ======= -->
-    <section id="team" class="team section-bg">
+    <!-- ======= Suscribe Section ======= -->
+    <div class="suscribe-area">
       <div class="container">
-
-        <div class="section-title">
-          <h2 data-aos="fade-up">Team</h2>
-          <p data-aos="fade-up">Meet Our Team</p>
-        </div>
-
         <div class="row">
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
-            <div class="member">
-              <div class="member-img">
-                 <!-- <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">-->
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Abraham E. bedell</h4>
-                <span>Chief Executive Officer</span>
-              </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs=12">
+            <div class="suscribe-text text-center">
+              <h3>Welcome to our eBusiness company</h3>
+              <a class="sus-btn" href="#">Get A quote</a>
             </div>
           </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="member">
-              <div class="member-img">
-                <!-- <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">-->
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Joanna B. Roberts</h4>
-                <span>Admin & Finance Officer</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="member">
-              <div class="member-img">
-               <!-- <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">-->
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>George C, Toby</h4>
-                <span>Opperation Manager</span>
-              </div>
-            </div>
-          </div>
-
         </div>
-
       </div>
-    </section><!-- End Team Section -->
-
-    <!-- ======= Pricing Section ======= 
-    <section id="pricing" class="pricing">
-      <div class="container">
-
-        <div class="section-title">
-          <h2 data-aos="fade-up">Pricing</h2>
-          <p data-aos="fade-up">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up">
-            <div class="box">
-              <h3>Free</h3>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li class="na">Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="100">
-            <div class="box featured">
-              <h3>Business</h3>
-              <h4><sup>$</sup>19<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
-            <div class="box">
-              <h3>Developer</h3>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <div class="box">
-              <span class="advanced">Advanced</span>
-              <h3>Ultimate</h3>
-              <h4><sup>$</sup>49<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Pricing Section -->
-
-    <!-- ======= F.A.Q Section ======= 
-    <section id="faq" class="faq section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2 data-aos="fade-up">F.A.Q</h2>
-          <p data-aos="fade-up">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="faq-list">
-          <ul>
-            <li data-aos="fade-up">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
-                <p>
-                  Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="100">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Feugiat scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="200">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="300">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="400">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
-                </p>
-              </div>
-            </li>
-
-          </ul>
-        </div>
-
-      </div>
-    </section><!-- End F.A.Q Section -->
+    </div><!-- End Suscribe Section -->
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2 data-aos="fade-up">Contact</h2>
-          <p data-aos="fade-up">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row justify-content-center">
-
-          <div class="col-xl-3 col-lg-4 mt-4" data-aos="fade-up">
-            <div class="info-box">
-              <i class="bx bx-map"></i>
-              <h3>Our Address</h3>
-              <p>Town Hall Junction, Barnersville Road, Monrovia, Liberia</p>
+    <div id="contact" class="contact-area">
+      <div class="contact-inner area-padding">
+        <div class="contact-overly"></div>
+        <div class="container ">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h2>Contact us</h2>
+              </div>
             </div>
           </div>
-
-          <div class="col-xl-3 col-lg-4 mt-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="info-box">
-              <i class="bx bx-envelope"></i>
-              <h3>Email Us</h3>
-              <p>edigitalnetwork842@gmail.com</p>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-4 mt-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="info-box">
-              <i class="bx bx-phone-call"></i>
-              <h3>Call Us</h3>
-              <p>+231 777217070<br>+231 888880929</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
-          <div class="col-xl-9 col-lg-12 mt-4">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+          <div class="row">
+            <!-- Start contact icon column -->
+            <div class="col-md-4">
+              <div class="contact-icon text-center">
+                <div class="single-icon">
+                  <i class="bi bi-phone"></i>
+                  <p>
+                    Call: +1 5589 55488 55<br>
+                    <span>Monday-Friday (9am-5pm)</span>
+                  </p>
                 </div>
               </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+            </div>
+            <!-- Start contact icon column -->
+            <div class="col-md-4">
+              <div class="contact-icon text-center">
+                <div class="single-icon">
+                  <i class="bi bi-envelope"></i>
+                  <p>
+                    Email: info@example.com<br>
+                    <span>Web: www.example.com</span>
+                  </p>
+                </div>
               </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+            </div>
+            <!-- Start contact icon column -->
+            <div class="col-md-4">
+              <div class="contact-icon text-center">
+                <div class="single-icon">
+                  <i class="bi bi-geo-alt"></i>
+                  <p>
+                    Location: A108 Adam Street<br>
+                    <span>NY 535022, USA</span>
+                  </p>
+                </div>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
+            </div>
           </div>
+          <div class="row">
 
+            <!-- Start Google Map -->
+            <div class="col-md-6">
+              <!-- Start Map -->
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+              <!-- End Map -->
+            </div>
+            <!-- End Google Map -->
+
+            <!-- Start  contact -->
+            <div class="col-md-6">
+              <div class="form contact-form">
+                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                  <div class="form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                  </div>
+                  <div class="my-3">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                  </div>
+                  <div class="text-center"><button type="submit">Send Message</button></div>
+                </form>
+              </div>
+            </div>
+            <!-- End Left contact -->
+          </div>
         </div>
-
       </div>
-    </section><!-- End Contact Section -->
+    </div><!-- End Contact Section -->
 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    <div class="footer-top">
+  <footer>
+    <div class="footer-area">
       <div class="container">
         <div class="row">
+          <div class="col-md-4">
+            <div class="footer-content">
+              <div class="footer-head">
+                <div class="footer-logo">
+                  <h2><span>e</span>Business</h2>
+                </div>
 
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>E-Digital Network</h3>
-            <p>
-              Town Hall Junction,<br> Barnersville Road, <br>Monrovia, Liberia 
-              <strong>Phone:</strong> +231 888880929<br>
-              <strong>Email:</strong> edigitalnetwork842@gmail.com<br>
-            </p>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                <div class="footer-icons">
+                  <ul>
+                    <li>
+                      <a href="#"><i class="bi bi-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="bi bi-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="bi bi-instagram"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
+          <!-- end single footer -->
+          <div class="col-md-4">
+            <div class="footer-content">
+              <div class="footer-head">
+                <h4>information</h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                </p>
+                <div class="footer-contacts">
+                  <p><span>Tel:</span> +123 456 789</p>
+                  <p><span>Email:</span> contact@example.com</p>
+                  <p><span>Working Hours:</span> 9am-5pm</p>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
+          <!-- end single footer -->
+          <div class="col-md-4">
+            <div class="footer-content">
+              <div class="footer-head">
+                <h4>Instagram</h4>
+                <div class="flicker-img">
+                  <a href="#"><img src="assets/img/portfolio/1.jpg" alt=""></a>
+                  <a href="#"><img src="assets/img/portfolio/2.jpg" alt=""></a>
+                  <a href="#"><img src="assets/img/portfolio/3.jpg" alt=""></a>
+                  <a href="#"><img src="assets/img/portfolio/4.jpg" alt=""></a>
+                  <a href="#"><img src="assets/img/portfolio/5.jpg" alt=""></a>
+                  <a href="#"><img src="assets/img/portfolio/6.jpg" alt=""></a>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-
         </div>
       </div>
     </div>
-
-    <div class="container d-lg-flex py-4">
-
-      <div class="me-lg-auto text-center text-lg-start">
-        <div class="copyright">
-          &copy; Copyright <strong><span>E-Digital Network</span></strong>. All Rights Reserved
+    <div class="footer-area-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="copyright text-center">
+              <p>
+                &copy; Copyright <strong>eBusiness</strong>. All Rights Reserved
+              </p>
+            </div>
+            <div class="credits">
+              <!--
+              All the links in the footer should remain intact.
+              You can delete the links only if you purchased the pro version.
+              Licensing information: https://bootstrapmade.com/license/
+              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eBusiness
+            -->
+              Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+          </div>
         </div>
-        <div class="credits">
-          
-          Designed by <a href="www.edigitalnetwork.tech">E-Digital Network</a>
-        </div>
-      </div>
-      <div class="social-links text-center text-lg-right pt-3 pt-lg-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </footer><!-- End  Footer -->
 
+  <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  {% load static %}
+ 
 
   <!-- Vendor JS Files -->
-  <script src="{% static 'vendor/aos/aos.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
   <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
@@ -884,6 +1075,7 @@
   <!-- Template Main JS File -->
   <script src="{% static 'js/main.js' %}"></script>
   
+
 </body>
 
 </html>
