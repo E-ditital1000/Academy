@@ -1391,7 +1391,7 @@ div#preloader {
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #3ec1d5;
+  background-color: #ffae00;
 }
 
 @media (min-width: 992px) {
@@ -1404,7 +1404,7 @@ div#preloader {
 # Quote
 --------------------------------------------------------------*/
 .suscribe-area {
-  background: #3EC1D5 none repeat scroll 0 0;
+  background: #ffae00 none repeat scroll 0 0;
   padding: 30px 0;
 }
 
@@ -1438,7 +1438,7 @@ div#preloader {
 }
 
 .sus-btn:hover {
-  background: #3EC1D5 none repeat scroll 0 0;
+  background: #ffae00 none repeat scroll 0 0;
   border: 2px solid #fff;
   color: #fff;
 }
@@ -1467,7 +1467,7 @@ div#preloader {
   line-height: 56px;
   border-radius: 50%;
   margin-bottom: 30px;
-  color: #3ec1d5;
+  color: #ffae00;
 }
 
 .single-icon p {
@@ -1538,7 +1538,7 @@ div#preloader {
 
 .php-email-form input:focus,
 .php-email-form textarea:focus {
-  border-color: #3ec1d5;
+  border-color: #ffae00;
 }
 
 .php-email-form input {
@@ -1719,7 +1719,7 @@ div#preloader {
 }
 
 .search-option button:hover {
-  color: #3ec1d5;
+  color: #ffae00;
 }
 
 .left-blog h4 {
@@ -1902,8 +1902,8 @@ div#preloader {
 .pagination>.active>span:hover,
 .pagination>.active>a:focus,
 .pagination>.active>span:focus {
-  background-color: #3EC1D5;
-  border-color: #3EC1D5;
+  background-color: #ffae00;
+  border-color: #ffae00;
   color: #fff;
   cursor: default;
   z-index: 3;
@@ -2142,7 +2142,7 @@ span.email-notes {
 }
 
 .footer-logo h2 span {
-  color: #3ec1d5;
+  color: #ffae00;
 }
 
 .footer-icons ul li {
@@ -2181,7 +2181,7 @@ span.email-notes {
 }
 
 .footer-contacts p span {
-  color: #3EC1D5;
+  color: #ffae00;
   font-weight: 700;
 }
 
@@ -2196,8 +2196,8 @@ span.email-notes {
 
 .popular-tag ul li a:hover,
 .footer-icons ul li a:hover {
-  background: #3EC1D5;
-  border: 1px solid #3EC1D5;
+  background: #ffae00;
+  border: 1px solid #ffae00;
   color: #fff;
 }
 
@@ -2223,7 +2223,7 @@ span.email-notes {
 
 .copyright-text a:hover {
   text-decoration: underline;
-  color: #3EC1D5;
+  color: #ffae00;
 }
 
 .copyright-text a {
@@ -2237,7 +2237,7 @@ span.email-notes {
 
 .copyright a,
 .credits a {
-  color: #3EC1D5;
+  color: #ffae00;
 }
 
 .credits {
