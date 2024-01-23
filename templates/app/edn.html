@@ -52,16 +52,16 @@
                   <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                   <li><a class="nav-link scrollto" href="#about">About</a></li>
                   <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                  <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
+                  \
                   <li><a class="nav-link scrollto" href="#team">Team</a></li>
               
-                  <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+                  <li class="dropdown"><a href="#"><span>Education</span> <i class="bi bi-chevron-down"></i></a>
                       <ul>
-                          <li><a href="#">Drop Down 1</a></li>
-                          <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
+                          
+                          <li class="dropdown"><a href="#"><span>Online Portal</span> <i
                                       class="bi bi-chevron-right"></i></a>
                               <ul>
-                                  <li><a href="#">Start Learning</a></li>
+                                  <li><a href="{% url 'home' %}">Login</a></li>
                               </ul>
                           </li>
                       
@@ -101,18 +101,18 @@
                       <div class="container">
                           <h2 class="animate__animated animate__fadeInDown">Innovative Solutions for Success</h2>
                           <p class="animate__animated animate__fadeInUp">Experience business security and peace of mind with E-Digital Network's cutting-edge solutions.</p>
-                          <a href="{% url 'home' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                          <a href="{% url 'home' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp">Start Learning</a>
                       </div>
                   </div>
               </div>
 
               <!-- Slide 3 -->
-              <div class="carousel-item" style="background-image: url({% static 'assets/hero-carousel/3.jpg' %})">
+              <div class="carousel-item" style="background-image: url({% static 'assets/img/hero-carousel/new.jpg' %})">
                   <div class="carousel-container">
                       <div class="container">
                           <h2 class="animate__animated animate__fadeInDown">Transforming Digital Experiences</h2>
                           <p class="animate__animated animate__fadeInUp">Explore the possibilities with E-Digital Network's expertise in creating seamless and engaging digital experiences.</p>
-                          <a href="{% url 'home' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                          <a href="{% url 'home' %}" class="btn-get-started scrollto animate__animated animate__fadeInUp">Start Learning</a>
                       </div>
                   </div>
               </div>
@@ -355,7 +355,40 @@
             <div class="single-team-member">
               <div class="team-img">
                 <a href="#">
-                  <img src="{% static 'assets/img/team/98.jpeg' %}" alt="">
+                  <img src="{% static 'assets/img/team/5.jpeg' %}" alt="">
+                </a>
+                <div class="team-social-icon text-center">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="team-content text-center">
+                <h4>Abraham E. Bedell</h4>
+                <p>Ceo</p>
+              </div>
+            </div>
+          </div>
+          <!-- End column -->
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="single-team-member">
+              <div class="team-img">
+                <a href="#">
+                  <img src="{% static 'assets/img/team/9.jpg' %}" alt="">
                 </a>
                 <div class="team-social-icon text-center">
                   <ul>
@@ -379,40 +412,7 @@
               </div>
               <div class="team-content text-center">
                 <h4>Joanna B. Roberts</h4>
-                <p>AFO</p>
-              </div>
-            </div>
-          </div>
-          <!-- End column -->
-          <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-                  <img src="{% static 'assets/img/team/2.jpg' %}" alt="">
-                </a>
-                <div class="team-social-icon text-center">
-                  <ul>
-                    <li>
-                      <a href="#">
-                        <i class="bi bi-facebook"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="bi bi-twitter"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="bi bi-instagram"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="team-content text-center">
-                <h4>George C. Toby</h4>
-                <p>Web Developer</p>
+                <p>Content Creator</p>
               </div>
             </div>
           </div>
@@ -454,7 +454,7 @@
             <div class="single-team-member">
               <div class="team-img">
                 <a href="#">
-                  <img src="{% static 'assets/img/team/4.jpg' %}" alt="">
+                  <img src="{% static 'assets/img/team/0.jpg' %}" alt="">
                 </a>
                 <div class="team-social-icon text-center">
                   <ul>
@@ -477,7 +477,7 @@
                 </div>
               </div>
               <div class="team-content text-center">
-                <h4>Jhon Powel</h4>
+                <h4>Willie M. Broh</h4>
                 <p>Marketing Expert</p>
               </div>
             </div>
@@ -491,7 +491,7 @@
 <div class="reviews-area">
   <div class="row g-0">
     <div class="col-lg-6">
-      <img src="{% static 'assets/img/about/2.jpg' %}" alt="" class="img-fluid">
+      <img src="{% static 'assets/img/about/88.jpg' %}" alt="" class="img-fluid">
     </div>
     <div class="col-lg-6 work-right-text d-flex align-items-center">
       <div class="px-5 py-5 py-lg-0">
